@@ -18,20 +18,27 @@ public class DataSource {
     private final String USER;
     private final String PASSWORD;
 
+//    {
+//        ResourceBundle rb = ResourceBundle.getBundle("db\\db");
+//        if (rb == null) {
+//            URL = "UNDEFINED";
+//            USER = "UNDEFINED";
+//            PASSWORD = "UNDEFINED";
+//            DRIVER = "com.mysql.jdbc.Driver";
+//            System.out.println("Бандл для db не был инициализирован");
+//        } else {
+//            URL = rb.getString("url");
+//            USER = rb.getString("user");
+//            PASSWORD = rb.getString("password");
+//            DRIVER = rb.getString("driver");
+//        }
+//    }
+
     {
-        ResourceBundle rb = ResourceBundle.getBundle("db");
-        if (rb == null) {
-            URL = "UNDEFINED";
-            USER = "UNDEFINED";
-            PASSWORD = "UNDEFINED";
-            DRIVER = "com.mysql.jdbc.Driver";
-            System.out.println("Бандл для db не был инициализирован");
-        } else {
-            URL = rb.getString("url");
-            USER = rb.getString("user");
-            PASSWORD = rb.getString("password");
-            DRIVER = rb.getString("driver");
-        }
+        URL = "jdbc:mysql://localhost/course_project";
+        USER = "root";
+        PASSWORD = "dimabase";
+        DRIVER = "com.mysql.jdbc.Driver";
     }
 
     private DataSource() throws IOException, SQLException, PropertyVetoException {

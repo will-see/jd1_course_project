@@ -14,17 +14,17 @@ import java.util.List;
 public class ItemDaoImpl extends AbstractDao implements ItemDao {
     private static volatile ItemDao INSTANCE = null;
 
-    private static final String saveItemQuery = "INSERT INTO ITEM (ID_FORMULAR, BOOKS_COUNT) VALUES (?, ?)";
-    private static final String getItemQuery = "SELECT * FROM ITEM WHERE ITEM_ID=?";
-    private static final String updateItemQuery = "UPDATE ITEM SET QUANTITY=?, DISCOUNT=? WHERE ITEM_ID=?";
-    private static final String deleteItemQuery = "DELETE FROM ITEM WHERE ITEM_ID=?";
-    private static final String getItemsByUserIdQuery = "SELECT * FROM ITEM WHERE ORDER_ID = ?";
+    private static final String saveItemQuery = "INSERT INTO ITEM (formularId, bookId) VALUES (?, ?)";
+    private static final String getItemQuery = "SELECT * FROM ITEM WHERE itemId=?";
+    private static final String updateItemQuery = "UPDATE ITEM SET bookId=? WHERE itemId=?";
+    private static final String deleteItemQuery = "DELETE FROM ITEM WHERE itemId=?";
+    private static final String getItemsByUserIdQuery = "SELECT * FROM ITEM WHERE formularId = ?";
 
     private PreparedStatement psSave;
-    private PreparedStatement psUpdate;
     private PreparedStatement psGet;
-    private PreparedStatement psGetAll;
+    private PreparedStatement psUpdate;
     private PreparedStatement psDelete;
+    private PreparedStatement psGetAll;
 
     private ItemDaoImpl() {
     }
@@ -39,7 +39,6 @@ public class ItemDaoImpl extends AbstractDao implements ItemDao {
                 }
             }
         }
-
         return itemDao;
     }
 
@@ -47,7 +46,7 @@ public class ItemDaoImpl extends AbstractDao implements ItemDao {
     public Item save(Item item) throws SQLException {
         psSave = prepareStatement(saveItemQuery, Statement.RETURN_GENERATED_KEYS);
         psSave.setLong(1, item.getFormularId());
-        psSave.setInt(2, item.getBooksCount());
+        psSave.setLong(2, item.getBookId());
         psSave.executeUpdate();
         ResultSet rs = psSave.getGeneratedKeys();
         if (rs.next()) {
@@ -74,9 +73,8 @@ public class ItemDaoImpl extends AbstractDao implements ItemDao {
     @Override
     public void update(Item item) throws SQLException {
         psUpdate = prepareStatement(updateItemQuery);
-        psUpdate.setLong(3, item.getId());
-        psUpdate.setLong(1, item.getFormularId());
-        psUpdate.setInt(2, item.getBooksCount());
+        psUpdate.setLong(2, item.getId());
+        psUpdate.setLong(1, item.getBookId());
         psUpdate.executeUpdate();
     }
 
@@ -88,9 +86,9 @@ public class ItemDaoImpl extends AbstractDao implements ItemDao {
     }
 
     @Override
-    public List<Item> getByUserId(long userId) throws SQLException {
+    public List<Item> getByFormularId(long formularId) throws SQLException {
         psGetAll = prepareStatement(getItemsByUserIdQuery);
-        psGetAll.setLong(1, userId);
+        psGetAll.setLong(1, formularId);
         psGetAll.execute();
         List<Item> list = new ArrayList<>();
         ResultSet rs = psGetAll.getResultSet();
@@ -105,7 +103,7 @@ public class ItemDaoImpl extends AbstractDao implements ItemDao {
         Item entity = new Item();
         entity.setId(rs.getLong(1));
         entity.setFormularId(rs.getLong(2));
-        entity.setBooksCount(rs.getInt(3));
+        entity.setBookId(rs.getInt(3));
         return entity;
     }
 }

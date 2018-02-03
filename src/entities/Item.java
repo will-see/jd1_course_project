@@ -1,25 +1,24 @@
 package entities;
 
 public class Item {
-    private long id;
+    private long itemId;
     private long formularId;
-    private int booksCount;
+    private long bookId;
 
     public Item() {
     }
 
-    public Item(long id, long formularId, int booksCount) {
-        this.id = id;
+    public Item( long formularId, long bookId) {
         this.formularId = formularId;
-        this.booksCount = booksCount;
+        this.bookId = bookId;
     }
 
     public long getId() {
-        return id;
+        return itemId;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setId(long itemId) {
+        this.itemId = itemId;
     }
 
     public long getFormularId() {
@@ -30,11 +29,11 @@ public class Item {
         this.formularId = formularId;
     }
 
-    public int getBooksCount() {
-        return booksCount;
+    public long getBookId() {
+        return bookId;
     }
 
-    public void setBooksCount(int booksCount) {
-        this.booksCount = booksCount;
+    public void setBookId(long bookId) {
+        this.bookId = bookId;
     }
 }
