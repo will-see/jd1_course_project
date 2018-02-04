@@ -47,7 +47,7 @@ public class FormularDaoImpl extends AbstractDao implements FormularDao {
         psGet.executeQuery();
         ResultSet rs = psGet.getResultSet();
         if (rs.next()) {
-            return populateEntity(rs);
+            return populateFormular(rs);
         }
         close(rs);
         return null;
@@ -76,14 +76,14 @@ public class FormularDaoImpl extends AbstractDao implements FormularDao {
         ResultSet rs = psGetAllByUserId.getResultSet();
         List<Formular> list = new ArrayList<>();
         while (rs.next()) {
-            list.add(populateEntity(rs));
+            list.add(populateFormular(rs));
         }
         close(rs);
 
         return list;
     }
 
-    private Formular populateEntity(ResultSet rs) throws SQLException {
+    private Formular populateFormular(ResultSet rs) throws SQLException {
         Formular entity = new Formular();
         entity.setFormularId(rs.getLong(1));
         entity.setUserId(rs.getLong(2));
@@ -91,16 +91,16 @@ public class FormularDaoImpl extends AbstractDao implements FormularDao {
     }
 
     public static FormularDao getInstance() {
-        FormularDao itemDao = INSTANCE;
-        if (itemDao == null) {
-            synchronized (ItemDaoImpl.class) {
-                itemDao = INSTANCE;
-                if (itemDao == null) {
-                    INSTANCE = itemDao = new FormularDaoImpl();
+        FormularDao formularDao = INSTANCE;
+        if (formularDao == null) {
+            synchronized (FormularDaoImpl.class) {
+                formularDao = INSTANCE;
+                if (formularDao == null) {
+                    INSTANCE = formularDao = new FormularDaoImpl();
                 }
             }
         }
 
-        return itemDao;
+        return formularDao;
     }
 }

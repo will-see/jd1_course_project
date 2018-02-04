@@ -55,7 +55,7 @@ public class BookDaoImpl extends AbstractDao implements BookDao {
         psGet.executeQuery();
         ResultSet rs = psGet.getResultSet();
         if (rs.next()) {
-            return populateProduct(rs);
+            return populateBook(rs);
         }
         close(rs);
 
@@ -109,13 +109,13 @@ public class BookDaoImpl extends AbstractDao implements BookDao {
         ResultSet rs = psGetAll.getResultSet();
         List<Book> list = new ArrayList<>();
         while (rs.next()) {
-            list.add(populateProduct(rs));
+            list.add(populateBook(rs));
         }
         close(rs);
         return list;
     }
 
-    private Book populateProduct(ResultSet rs) throws SQLException {
+    private Book populateBook(ResultSet rs) throws SQLException {
         Book book = new Book();
         book.setName(rs.getString(2));
         book.setGanr(rs.getString(3));

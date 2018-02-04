@@ -63,7 +63,7 @@ public class ItemDaoImpl extends AbstractDao implements ItemDao {
         psGet.executeQuery();
         ResultSet rs = psGet.getResultSet();
         if (rs.next()) {
-            return populateEntity(rs);
+            return populateBook(rs);
         }
         close(rs);
 
@@ -93,13 +93,13 @@ public class ItemDaoImpl extends AbstractDao implements ItemDao {
         List<Item> list = new ArrayList<>();
         ResultSet rs = psGetAll.getResultSet();
         while (rs.next()) {
-            list.add(populateEntity(rs));
+            list.add(populateBook(rs));
         }
         close(rs);
         return list;
     }
 
-    private Item populateEntity(ResultSet rs) throws SQLException {
+    private Item populateBook(ResultSet rs) throws SQLException {
         Item entity = new Item();
         entity.setId(rs.getLong(1));
         entity.setFormularId(rs.getLong(2));

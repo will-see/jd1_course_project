@@ -19,7 +19,7 @@ public class DataSource {
     private final String PASSWORD;
 
 //    {
-//        ResourceBundle rb = ResourceBundle.getBundle("db\\db");
+//        ResourceBundle rb = ResourceBundle.getBundle("db");
 //        if (rb == null) {
 //            URL = "UNDEFINED";
 //            USER = "UNDEFINED";
@@ -35,7 +35,7 @@ public class DataSource {
 //    }
 
     {
-        URL = "jdbc:mysql://localhost/course_project";
+        URL = "jdbc:mysql://localhost/course_project?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false";
         USER = "root";
         PASSWORD = "dimabase";
         DRIVER = "com.mysql.jdbc.Driver";
