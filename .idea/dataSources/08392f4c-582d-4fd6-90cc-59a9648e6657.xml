@@ -1086,7 +1086,7 @@
       <ColNames>id_author</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="269" parent="239" name="id_book">
+    <column id="269" parent="239" name="bookId">
       <Position>1</Position>
       <DataType>int(10)|0</DataType>
       <NotNull>1</NotNull>
@@ -1111,7 +1111,7 @@
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="273" parent="239" name="id_author">
+    <column id="273" parent="239" name="authorId">
       <Position>5</Position>
       <DataType>int(10)|0</DataType>
       <NotNull>1</NotNull>
@@ -1123,371 +1123,365 @@
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="275" parent="239" name="id_author">
-      <ColNames>id_author</ColNames>
+    <index id="275" parent="239" name="authorId">
+      <ColNames>authorId</ColNames>
     </index>
     <key id="276" parent="239" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
-      <ColNames>id_book</ColNames>
+      <ColNames>bookId</ColNames>
       <Primary>1</Primary>
     </key>
     <foreign-key id="277" parent="239" name="books_ibfk_1">
-      <ColNames>id_author</ColNames>
+      <ColNames>authorId</ColNames>
       <RefSchemaName>course_project</RefSchemaName>
       <RefTableName>authors</RefTableName>
       <RefColNames>id_author</RefColNames>
     </foreign-key>
-    <column id="278" parent="240" name="id_formular">
+    <column id="278" parent="240" name="formularId">
       <Position>1</Position>
       <DataType>int(5)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="279" parent="240" name="id_user">
+    <column id="279" parent="240" name="userId">
       <Position>2</Position>
       <DataType>int(5)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="280" parent="240" name="id_book">
+    <column id="280" parent="240" name="bookId">
       <Position>3</Position>
       <DataType>int(10)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="281" parent="240" name="book_count">
-      <Position>4</Position>
-      <DataType>int(3)|0</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <index id="282" parent="240" name="id_user">
-      <ColNames>id_user</ColNames>
+    <index id="281" parent="240" name="userId">
+      <ColNames>userId</ColNames>
     </index>
-    <index id="283" parent="240" name="id_book">
-      <ColNames>id_book</ColNames>
-    </index>
-    <key id="284" parent="240" name="PRIMARY">
+    <key id="282" parent="240" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
-      <ColNames>id_formular</ColNames>
+      <ColNames>formularId</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="285" parent="240" name="formular_ibfk_1">
-      <ColNames>id_user</ColNames>
+    <foreign-key id="283" parent="240" name="formular_ibfk_1">
+      <ColNames>userId</ColNames>
       <RefSchemaName>course_project</RefSchemaName>
       <RefTableName>users</RefTableName>
-      <RefColNames>id_user</RefColNames>
+      <RefColNames>userId</RefColNames>
     </foreign-key>
-    <foreign-key id="286" parent="240" name="formular_ibfk_2">
-      <ColNames>id_book</ColNames>
-      <RefSchemaName>course_project</RefSchemaName>
-      <RefTableName>books</RefTableName>
-      <RefColNames>id_book</RefColNames>
-    </foreign-key>
-    <column id="287" parent="241" name="ID">
+    <column id="284" parent="241" name="ID">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="288" parent="241" name="id_formular">
+    <column id="285" parent="241" name="formularId">
       <Position>2</Position>
       <DataType>int(5)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="289" parent="241" name="books_count">
+    <column id="286" parent="241" name="bookId">
       <Position>3</Position>
-      <DataType>int(3)|0</DataType>
+      <DataType>int(5)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="290" parent="241" name="Order_fk">
-      <ColNames>id_formular</ColNames>
+    <index id="287" parent="241" name="Order_fk">
+      <ColNames>formularId</ColNames>
     </index>
-    <key id="291" parent="241" name="PRIMARY">
+    <index id="288" parent="241" name="Book_fk">
+      <ColNames>bookId</ColNames>
+    </index>
+    <key id="289" parent="241" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="292" parent="241" name="Order_fk">
-      <ColNames>id_formular</ColNames>
+    <foreign-key id="290" parent="241" name="Order_fk">
+      <ColNames>formularId</ColNames>
       <RefSchemaName>course_project</RefSchemaName>
       <RefTableName>formular</RefTableName>
-      <RefColNames>id_formular</RefColNames>
+      <RefColNames>formularId</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="293" parent="242" name="id_role">
+    <foreign-key id="291" parent="241" name="Book_fk">
+      <ColNames>bookId</ColNames>
+      <RefSchemaName>course_project</RefSchemaName>
+      <RefTableName>books</RefTableName>
+      <RefColNames>bookId</RefColNames>
+    </foreign-key>
+    <column id="292" parent="242" name="id_role">
       <Position>1</Position>
       <DataType>enum(&apos;0&apos;, &apos;1&apos;)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="294" parent="242" name="role">
+    <column id="293" parent="242" name="role">
       <Position>2</Position>
       <DataType>enum(&apos;reader&apos;, &apos;admin&apos;)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="295" parent="242" name="PRIMARY">
+    <key id="294" parent="242" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id_role</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="296" parent="243" name="id_user">
+    <column id="295" parent="243" name="userId">
       <Position>1</Position>
       <DataType>int(5)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="297" parent="243" name="name">
+    <column id="296" parent="243" name="name">
       <Position>2</Position>
       <DataType>varchar(20)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="298" parent="243" name="LOGIN">
+    <column id="297" parent="243" name="LOGIN">
       <Position>3</Position>
       <DataType>varchar(20)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="299" parent="243" name="PASSWORD">
+    <column id="298" parent="243" name="PASSWORD">
       <Position>4</Position>
       <DataType>varchar(25)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="300" parent="243" name="age">
+    <column id="299" parent="243" name="age">
       <Position>5</Position>
       <DataType>int(3)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="301" parent="243" name="sex">
+    <column id="300" parent="243" name="sex">
       <Position>6</Position>
       <DataType>enum(&apos;male&apos;, &apos;female&apos;)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="302" parent="243" name="id_role">
+    <column id="301" parent="243" name="id_role">
       <Position>7</Position>
       <DataType>enum(&apos;0&apos;, &apos;1&apos;)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="303" parent="243" name="USER_LOGIN_uindex">
+    <index id="302" parent="243" name="USER_LOGIN_uindex">
       <ColNames>LOGIN</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="304" parent="243" name="id_role">
+    <index id="303" parent="243" name="id_role">
       <ColNames>id_role</ColNames>
     </index>
-    <key id="305" parent="243" name="PRIMARY">
+    <key id="304" parent="243" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
-      <ColNames>id_user</ColNames>
+      <ColNames>userId</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="306" parent="243" name="USER_LOGIN_uindex">
+    <key id="305" parent="243" name="USER_LOGIN_uindex">
       <ColNames>LOGIN</ColNames>
       <UnderlyingIndexName>USER_LOGIN_uindex</UnderlyingIndexName>
     </key>
-    <foreign-key id="307" parent="243" name="users_ibfk_1">
+    <foreign-key id="306" parent="243" name="users_ibfk_1">
       <ColNames>id_role</ColNames>
       <RefSchemaName>course_project</RefSchemaName>
       <RefTableName>roles</RefTableName>
       <RefColNames>id_role</RefColNames>
     </foreign-key>
-    <column id="308" parent="244" name="ID">
+    <column id="307" parent="244" name="ID">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="309" parent="244" name="ORDER_ID">
+    <column id="308" parent="244" name="ORDER_ID">
       <Position>2</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="310" parent="244" name="PRODUCT_ID">
+    <column id="309" parent="244" name="PRODUCT_ID">
       <Position>3</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="311" parent="244" name="QUANTITY">
+    <column id="310" parent="244" name="QUANTITY">
       <Position>4</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="312" parent="244" name="DISCOUNT">
+    <column id="311" parent="244" name="DISCOUNT">
       <Position>5</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="313" parent="244" name="Order_fk">
+    <index id="312" parent="244" name="Order_fk">
       <ColNames>ORDER_ID</ColNames>
     </index>
-    <index id="314" parent="244" name="Product_fk">
+    <index id="313" parent="244" name="Product_fk">
       <ColNames>PRODUCT_ID</ColNames>
     </index>
-    <key id="315" parent="244" name="PRIMARY">
+    <key id="314" parent="244" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="316" parent="244" name="Order_fk">
+    <foreign-key id="315" parent="244" name="Order_fk">
       <ColNames>ORDER_ID</ColNames>
       <RefSchemaName>shop</RefSchemaName>
       <RefTableName>order</RefTableName>
       <RefColNames>ID</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="317" parent="244" name="Product_fk">
+    <foreign-key id="316" parent="244" name="Product_fk">
       <ColNames>PRODUCT_ID</ColNames>
       <RefSchemaName>shop</RefSchemaName>
       <RefTableName>product</RefTableName>
       <RefColNames>ID</RefColNames>
     </foreign-key>
-    <column id="318" parent="245" name="ID">
+    <column id="317" parent="245" name="ID">
       <Position>1</Position>
       <DataType>int(10)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="319" parent="245" name="USER_ID">
+    <column id="318" parent="245" name="USER_ID">
       <Position>2</Position>
       <DataType>int(10)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="320" parent="245" name="DATE">
+    <column id="319" parent="245" name="DATE">
       <Position>3</Position>
       <DataType>datetime|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="321" parent="245" name="TOTAL">
+    <column id="320" parent="245" name="TOTAL">
       <Position>4</Position>
       <DataType>decimal(10)|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="322" parent="245" name="STATUS">
+    <column id="321" parent="245" name="STATUS">
       <Position>5</Position>
       <DataType>char(10)|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;NEW&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="323" parent="245" name="user_fk">
+    <index id="322" parent="245" name="user_fk">
       <ColNames>USER_ID</ColNames>
     </index>
-    <key id="324" parent="245" name="PRIMARY">
+    <key id="323" parent="245" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="325" parent="245" name="user_fk">
+    <foreign-key id="324" parent="245" name="user_fk">
       <ColNames>USER_ID</ColNames>
       <RefSchemaName>shop</RefSchemaName>
       <RefTableName>user</RefTableName>
       <RefColNames>USER_ID</RefColNames>
     </foreign-key>
-    <column id="326" parent="246" name="ID">
+    <column id="325" parent="246" name="ID">
       <Position>1</Position>
       <DataType>int(8)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="327" parent="246" name="SUPPLIER">
+    <column id="326" parent="246" name="SUPPLIER">
       <Position>2</Position>
       <DataType>varchar(20)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="328" parent="246" name="MODEL">
+    <column id="327" parent="246" name="MODEL">
       <Position>3</Position>
       <DataType>varchar(15)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="329" parent="246" name="PRICE">
+    <column id="328" parent="246" name="PRICE">
       <Position>4</Position>
       <DataType>decimal(10)|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="330" parent="246" name="PRIMARY">
+    <key id="329" parent="246" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="331" parent="247" name="USER_ID">
+    <column id="330" parent="247" name="USER_ID">
       <Position>1</Position>
       <DataType>int(10)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="332" parent="247" name="NAME">
+    <column id="331" parent="247" name="NAME">
       <Position>2</Position>
       <DataType>varchar(20)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="333" parent="247" name="LOGIN">
+    <column id="332" parent="247" name="LOGIN">
       <Position>3</Position>
       <DataType>varchar(20)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="334" parent="247" name="PASSWORD">
+    <column id="333" parent="247" name="PASSWORD">
       <Position>4</Position>
       <DataType>varchar(25)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="335" parent="247" name="BIRTHDAY">
+    <column id="334" parent="247" name="BIRTHDAY">
       <Position>5</Position>
       <DataType>date|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="336" parent="247" name="STATUS">
+    <column id="335" parent="247" name="STATUS">
       <Position>6</Position>
       <DataType>char(10)|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;ACTIVE&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="337" parent="247" name="USER_LOGIN_uindex">
+    <index id="336" parent="247" name="USER_LOGIN_uindex">
       <ColNames>LOGIN</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="338" parent="247" name="PRIMARY">
+    <key id="337" parent="247" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>USER_ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="339" parent="247" name="USER_LOGIN_uindex">
+    <key id="338" parent="247" name="USER_LOGIN_uindex">
       <ColNames>LOGIN</ColNames>
       <UnderlyingIndexName>USER_LOGIN_uindex</UnderlyingIndexName>
     </key>
-    <argument id="340" parent="248" name="itemId">
+    <argument id="339" parent="248" name="itemId">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
     </argument>
-    <argument id="341" parent="248" name="itemPrice">
+    <argument id="340" parent="248" name="itemPrice">
       <Position>2</Position>
       <ArgumentDirection>O</ArgumentDirection>
       <DataType>decimal(10)|0</DataType>

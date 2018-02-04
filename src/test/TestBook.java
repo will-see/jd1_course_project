@@ -6,12 +6,15 @@ import db.ConnectionManager;
 import entities.Book;
 import org.junit.Assert;
 import org.junit.Test;
+import services.BookService;
+import services.impl.BookServiceImpl;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 
 public class TestBook {
     private BookDao bookDao = BookDaoImpl.getInstance();
+    private BookService bookService = BookServiceImpl.getInstance();
 
     public void initData() {}
 
@@ -48,6 +51,10 @@ public class TestBook {
 //        newBook.setName("kolobok");
 //        bookDao.delete(newBook.getBookId());
 //        bookDao.delete(newBook.getBookId()-8);
+
+//        test service
+
+        System.out.println(bookService.get(2l).getName());
     }
 
 
