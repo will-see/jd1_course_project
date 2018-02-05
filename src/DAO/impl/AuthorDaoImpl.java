@@ -7,13 +7,19 @@ import java.io.Serializable;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class AuthorDaoImpl extends AbstractDao implements AuthorDao {
     private static volatile AuthorDao INSTANCE = null;
 
     private static final String getUser = "SELECT * FROM authors WHERE author_name=?";
+    private static final String getAllAuthorQuery = "SELECT * FROM authors";
+
+    private PreparedStatement psGetAll;
     private PreparedStatement psGetByName;
 
+    @Override
     public Author getByName(String name) throws SQLException {
         psGetByName = prepareStatement(getUser);
         psGetByName.setString(1, name);
@@ -45,6 +51,19 @@ public class AuthorDaoImpl extends AbstractDao implements AuthorDao {
     public int delete(Serializable id) throws SQLException {
         return 0;
     }
+    @Override
+    public List<Author> getAll() throws SQLException {
+        psGetAll = prepareStatement(getAllAuthorQuery);
+        psGetAll.execute();
+        ResultSet rs = psGetAll.getResultSet();
+        List<Author> list = new ArrayList<>();
+        while (rs.next()) {
+            list.add(populateAuthor(rs));
+        }
+        close(rs);
+        return list;
+    }
+
     private Author populateAuthor(ResultSet rs) throws SQLException {
         Author author = new Author();
         author.setAuthorId(rs.getLong(1));

@@ -6,7 +6,9 @@ import db.ConnectionManager;
 import entities.Book;
 import org.junit.Assert;
 import org.junit.Test;
+import services.AuthorService;
 import services.BookService;
+import services.impl.AuthorServiceImpl;
 import services.impl.BookServiceImpl;
 
 import java.sql.Connection;
@@ -15,6 +17,7 @@ import java.sql.SQLException;
 public class TestBook {
     private BookDao bookDao = BookDaoImpl.getInstance();
     private BookService bookService = BookServiceImpl.getInstance();
+    private AuthorService authorService = AuthorServiceImpl.getInstance();
 
     public void initData() {}
 
@@ -55,6 +58,8 @@ public class TestBook {
 //        test service
 
         System.out.println(bookService.get(2l).getName());
+        System.out.println(authorService.getAll());
+        System.out.println(authorService.getByName("pushkin").getAuthorId());
     }
 
 

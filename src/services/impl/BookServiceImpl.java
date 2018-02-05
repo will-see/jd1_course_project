@@ -41,12 +41,20 @@ public class BookServiceImpl extends AbstractService implements services.BookSer
 
     @Override
     public void update(Book book) {
-
+        try {
+            bookDao.update(book);
+        } catch (SQLException e) {
+            throw new ServiceException("Error updating Formular book" + book);
+        }
     }
 
     @Override
     public int delete(Serializable id) {
-        return 0;
+        try {
+            return bookDao.delete(id);
+        } catch (SQLException e) {
+            throw new ServiceException("Error deleting Book by id" + id);
+        }
     }
 
     @Override
