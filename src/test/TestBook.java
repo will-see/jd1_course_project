@@ -60,6 +60,7 @@ public class TestBook {
         System.out.println(bookService.get(2l).getName());
         System.out.println(authorService.getAll());
         System.out.println(authorService.getByName("pushkin").getAuthorId());
+        System.out.println(AuthorServiceImpl.getInstance().getByName("pushkin").getAuthorId());
     }
 
 
