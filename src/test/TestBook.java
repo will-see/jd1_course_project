@@ -1,21 +1,26 @@
 package test;
 
 import DAO.BookDao;
+import DAO.FormularDao;
 import DAO.impl.BookDaoImpl;
+import DAO.impl.FormularDaoImpl;
 import db.ConnectionManager;
 import entities.Book;
+import entities.Formular;
 import org.junit.Assert;
 import org.junit.Test;
 import services.AuthorService;
 import services.BookService;
 import services.impl.AuthorServiceImpl;
 import services.impl.BookServiceImpl;
+import services.impl.FormularServiceImpl;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 
 public class TestBook {
     private BookDao bookDao = BookDaoImpl.getInstance();
+    private FormularDao formularDao = FormularDaoImpl.getInstance();
     private BookService bookService = BookServiceImpl.getInstance();
     private AuthorService authorService = AuthorServiceImpl.getInstance();
 
@@ -57,10 +62,12 @@ public class TestBook {
 
 //        test service
 
-        System.out.println(bookService.get(2l).getName());
-        System.out.println(authorService.getAll());
-        System.out.println(authorService.getByName("pushkin").getAuthorId());
-        System.out.println(AuthorServiceImpl.getInstance().getByName("pushkin").getAuthorId());
+//        System.out.println(bookService.get(2l).getName());
+//        System.out.println(authorService.getAll());
+//        System.out.println(authorService.getByName("pushkin").getAuthorId());
+//        System.out.println(AuthorServiceImpl.getInstance().getByName("pushkin").getAuthorId());
+        System.out.println(formularDao.getByUserId(1));
+        System.out.println(FormularServiceImpl.getInstance().getByUserId(0));
     }
 
 

@@ -17,7 +17,7 @@ public class FormularDaoImpl extends AbstractDao implements FormularDao {
     private static final String saveQuery = "INSERT INTO FORMULAR (userId, bookId) VALUES (?, ?)";
     private static final String updateQuery = "UPDATE formular SET bookId=? WHERE formularId=?";
     private static final String getQuery = "SELECT formularId, userId FROM formular WHERE formularId=?";
-    private static final String getAllByUserQuery = "SELECT formularId, userId FROM formuar WHERE userId = ? ORDER BY formularId DESC";
+    private static final String getAllByUserQuery = "SELECT formularId, userId FROM formular WHERE userId = ? ORDER BY formularId DESC";
     private static final String deleteQuery = "DELETE FROM formular WHERE formularId=?";
 
     private PreparedStatement psSave;

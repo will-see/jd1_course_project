@@ -93,3 +93,5 @@ INSERT INTO users (name, LOGIN, PASSWORD, age, sex, id_role) VALUES ('vasia', 'u
 
 INSERT INTO formular (userId, bookId) VALUES ('2', '1');
 INSERT INTO formular (userId, bookId) VALUES ('2', '2');
+
+SELECT *FROM formular;
