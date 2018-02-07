@@ -14,6 +14,9 @@
           <element id="library" level="project" name="mysql-connector-java-5.1.40-bin" />
           <element id="library" level="project" name="log4j-1.2.17" />
           <element id="library" level="project" name="mchange-commons-java-0.2.11" />
+          <element id="library" level="project" name="jstl-1.2" />
+          <element id="library" level="project" name="commons-lang3-3.7" />
+          <element id="library" level="project" name="standard" />
         </element>
       </element>
     </root>
