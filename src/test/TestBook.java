@@ -19,6 +19,8 @@ import services.impl.UserServiceImpl;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 public class TestBook {
     private BookDao bookDao = BookDaoImpl.getInstance();
@@ -27,6 +29,14 @@ public class TestBook {
     private AuthorService authorService = AuthorServiceImpl.getInstance();
 
     public void initData() {}
+
+    @Test
+    public void rbTest() {
+        Locale locale = new Locale("en");
+        ResourceBundle rb = ResourceBundle.getBundle("messages", locale);
+        System.out.println(rb.getString("login.login"));
+        System.out.println(rb.getString("login.register"));
+    }
 
     @Test
     public void fullTest() throws SQLException, Exception {
@@ -71,7 +81,7 @@ public class TestBook {
         System.out.println(formularDao.getByUserId(1));
         System.out.println(FormularServiceImpl.getInstance().getByUserId(0));
 
-            User user = UserServiceImpl.getInstance().createUser("valera", "user3", "user", 16, "male");
+//            User user = UserServiceImpl.getInstance().createUser("valera", "user3", "user", 16, "male");
     }
 
 

@@ -20,8 +20,9 @@ public class LoginController implements Controller {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
         if (login==null || password==null) {
+            resp.setHeader("errorMsg", "Invalid Login or Password");
             RequestDispatcher dispatcher = req.getRequestDispatcher(MAIN_PAGE);
-            req.setAttribute("title", "Login form");
+//            req.setAttribute("title", "Login form");
             dispatcher.forward(req, resp);
             return;
         }
@@ -33,9 +34,10 @@ public class LoginController implements Controller {
             resp.sendRedirect(contextPath+ "/frontController?command=formular");
             return;
         } else {
+            resp.setHeader("errorMsg", "Invalid Login or Password");
             req.setAttribute("errorMsg", "Invalid Login or Password");
             RequestDispatcher dispatcher = req.getRequestDispatcher(MAIN_PAGE);
-            req.setAttribute("title", "Login form");
+//            req.setAttribute("title", "Login form");
             dispatcher.forward(req, resp);
             return;
         }

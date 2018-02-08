@@ -10,6 +10,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.annotation.WebInitParam;
+import javax.servlet.http.HttpServletResponse;
 
 
 @WebFilter(filterName = "encodingFilter", urlPatterns = "/*", initParams = {@WebInitParam(name = "encoding", value = "UTF-8")})
@@ -24,6 +25,7 @@ public class EncodingFilter implements Filter {
 
 		response.setContentType("text/html; charset=" + encoding);
         response.setCharacterEncoding(encoding);
+		((HttpServletResponse)response).setHeader("Content-Language", "UTF-8");
 		filterChain.doFilter(request, response);
 	}
 

@@ -1,23 +1,23 @@
 package web.handlers;
 
-import web.command.enums.CommandType;
+import web.command.enums.ControllerType;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import static web.command.enums.CommandType.BOOKS;
+import static web.command.enums.ControllerType.BOOKS;
 
 
 public class RequestHandler {
-    public static CommandType getCommand(HttpServletRequest req){
+    public static ControllerType getCommand(HttpServletRequest req){
         String param = req.getParameter("command");
         if (param == null && "".equals(param)) {
-            param = "books";
+            param = "books.title";
         }
 
 
-        CommandType type = CommandType.getByPageName(param);
-        req.setAttribute("title", type.getPageName());
+        ControllerType type = ControllerType.getByPageName(param);
+        req.setAttribute("title", type.getI18nKey());
         HttpSession session = req.getSession();
         String pageName = (String)session.getAttribute("pageName");
         if (pageName != null) {

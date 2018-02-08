@@ -22,7 +22,7 @@ public class FormularServiceImpl extends AbstractService implements FormularServ
     private ItemDao itemDao = ItemDaoImpl.getInstance();
 
     @Override
-    public Formular createFormulal(long userId, long bookId) {
+    public Formular createFormular(long userId, long bookId) {
         Formular formular = new Formular();
         try {
             startTransaction();

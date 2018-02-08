@@ -15,7 +15,7 @@ public class BookController implements Controller {
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getSession().setAttribute("books", bookService.getAll());
-        req.getSession().setAttribute("counter", 2);
+//        req.getSession().setAttribute("counter", 2);
         req.getRequestDispatcher(MAIN_PAGE).forward(req, resp);
     }
 }
