@@ -4,19 +4,19 @@
     <form action="frontController?command=login" method="post">
         <br>
         <b>Name</b><br>
-        <input type="password" name="password" maxlength="20"/>
+        <input type="name" name="name" maxlength="20"/>
         <br>
         <b>Login</b><br>
-        <input type="text" name="UserName" maxlength="30"/>
+        <input type="login" name="login" maxlength="30"/>
         <br>
         <b>Password</b><br>
         <input type="password" name="password" maxlength="20"/>
         <br>
         <b>Age</b><br>
-        <input type="password" name="password" maxlength="20"/>
+        <input type="age" name="age" maxlength="20"/>
         <br>
         <b>Sex</b><br>
-        <input type="password" name="password" maxlength="20"/><br/>
+        <input type="sex" name="sex" maxlength="20"/><br/>
         <br>
         <input type="submit" value="Зарегистрироваться">
     </form>

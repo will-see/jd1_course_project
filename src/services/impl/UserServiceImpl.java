@@ -14,11 +14,15 @@ public class UserServiceImpl extends AbstractService implements UserService {
     private UserDao userDao = UserDaoImpl.getInstance();
 
     @Override
-    public User createUser(String name, String login, String password, int age, String sex, long roleId) {
+    public User createUser(String name, String login, String password, int age, String sex) {
         User user = new User();
         try {
             startTransaction();
             user.setName(name);
+            user.setLogin(login);
+            user.setPassword(password);
+            user.setAge(age);
+            user.setSex(sex);
             user = userDao.save(user);
             commit();
             return user;

@@ -37,7 +37,7 @@ CREATE TABLE users (
   PASSWORD VARCHAR(25)                 NOT NULL,
   age      INT(3)                      NOT NULL,
   sex      ENUM ('male', 'female')     NOT NULL,
-  id_role  ENUM ('0', '1') DEFAULT '1' NOT NULL,
+  id_role  ENUM ('0', '1') DEFAULT '0' NOT NULL,
   PRIMARY KEY (userId),
   FOREIGN KEY (id_role) REFERENCES roles (id_role)
 );

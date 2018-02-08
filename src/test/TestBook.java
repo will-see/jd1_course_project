@@ -7,6 +7,7 @@ import DAO.impl.FormularDaoImpl;
 import db.ConnectionManager;
 import entities.Book;
 import entities.Formular;
+import entities.User;
 import org.junit.Assert;
 import org.junit.Test;
 import services.AuthorService;
@@ -14,6 +15,7 @@ import services.BookService;
 import services.impl.AuthorServiceImpl;
 import services.impl.BookServiceImpl;
 import services.impl.FormularServiceImpl;
+import services.impl.UserServiceImpl;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -68,6 +70,8 @@ public class TestBook {
 //        System.out.println(AuthorServiceImpl.getInstance().getByName("pushkin").getAuthorId());
         System.out.println(formularDao.getByUserId(1));
         System.out.println(FormularServiceImpl.getInstance().getByUserId(0));
+
+            User user = UserServiceImpl.getInstance().createUser("valera", "user3", "user", 16, "male");
     }
 
 

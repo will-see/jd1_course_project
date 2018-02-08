@@ -16,27 +16,34 @@ public class RegisterController implements Controller {
 
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+        String name = req.getParameter("name");
         String login = req.getParameter("login");
         String password = req.getParameter("password");
-        if (login==null || password==null) {
+        String age = req.getParameter("age");
+        String sex = req.getParameter("sex");
+        if (login == null || password == null || name == null || age == null || sex == null) {
             RequestDispatcher dispatcher = req.getRequestDispatcher(MAIN_PAGE);
-            req.setAttribute("title", "Login form");
+            req.setAttribute("title", "Register form");
             dispatcher.forward(req, resp);
             return;
         }
-        User user = userService.getByLogin(login);
+        int intAge = Integer.parseInt(age);
+
+//        if (userService.getByLogin(login).equals(null)) {
+            User user = userService.createUser(name, login, password, intAge, sex);
+//        }
 //        if (user != null && user.getPassword().equals(Encoder.encode(password))) {
-        if (user != null && password.equals(user.getPassword())) {
-            req.getSession().setAttribute("user", user);
-            String contextPath = req.getContextPath();
-            resp.sendRedirect(contextPath+ "/frontController?command=formulars");
-            return;
-        } else {
-            req.setAttribute("errorMsg", "Invalid Login or Password");
-            RequestDispatcher dispatcher = req.getRequestDispatcher(MAIN_PAGE);
-            req.setAttribute("title", "Login form");
-            dispatcher.forward(req, resp);
-            return;
-        }
+//        if (user != null && password.equals(user.getPassword())) {
+//            req.getSession().setAttribute("user", user);
+//            String contextPath = req.getContextPath();
+        resp.sendRedirect("/frontController?command=formular");
+        return;
+//        } else {
+//            req.setAttribute("errorMsg", "login exist yet");
+//            RequestDispatcher dispatcher = req.getRequestDispatcher(MAIN_PAGE);
+//            req.setAttribute("title", "Register form");
+//            dispatcher.forward(req, resp);
+//            return;
+//        }
     }
 }

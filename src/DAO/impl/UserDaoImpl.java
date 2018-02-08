@@ -12,7 +12,7 @@ import java.sql.Statement;
 public class UserDaoImpl extends AbstractDao implements UserDao {
     private static volatile UserDao INSTANCE = null;
 
-    private static final String saveUserQuery = "INSERT INTO users (name,LOGIN, password, age, sex, id_role) VALUES (?,?,?,?,?,?)";
+    private static final String saveUserQuery = "INSERT INTO users (name,LOGIN, password, age, sex) VALUES (?,?,?,?,?)";
     private static final String getUserQuery = "SELECT * FROM users WHERE userId=?";
     private static final String updateUserQuery = "UPDATE users SET name=? WHERE userId=?";
     private static final String deleteUserQuery = "DELETE FROM users WHERE userId=?";
@@ -35,7 +35,7 @@ public class UserDaoImpl extends AbstractDao implements UserDao {
         psSave.setString(3, user.getPassword());
         psSave.setInt(4, user.getAge());
         psSave.setString(5, user.getSex());
-        psSave.setInt(6, user.getRole());
+//        psSave.setInt(6, user.getRole());
         psSave.executeUpdate();
         ResultSet rs = psSave.getGeneratedKeys();
         if (rs.next()) {

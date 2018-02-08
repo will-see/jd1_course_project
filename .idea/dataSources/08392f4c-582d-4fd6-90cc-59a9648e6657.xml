@@ -1271,7 +1271,7 @@
       <Position>7</Position>
       <DataType>enum(&apos;0&apos;, &apos;1&apos;)|0</DataType>
       <NotNull>1</NotNull>
-      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
     <index id="302" parent="243" name="USER_LOGIN_uindex">
