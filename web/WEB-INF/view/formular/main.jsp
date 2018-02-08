@@ -3,15 +3,15 @@
 
 <TABLE>
     <tr>
-        <th>Order Id</th>
-        <th>User id</th>
+        <%--<th>Order Id</th>--%>
+        <%--<th>User id</th>--%>
         <th>Sum</th>
     </tr>
 
-    <c:forEach var="formular" items="${formular}" >
+    <c:forEach var="formular" items="${formulars}" >
         <tr>
-            <td>${formular.formularId}</td>
-            <td>${formular.userId}</td>
+            <%--<td>${formular.formularId}</td>--%>
+            <%--<td>${formular.userId}</td>--%>
             <td>${formular.bookId}</td>
         </tr>
     </c:forEach>

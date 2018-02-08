@@ -1,7 +1,9 @@
 package services.impl;
 
+import DAO.BookDao;
 import DAO.FormularDao;
 import DAO.ItemDao;
+import DAO.impl.BookDaoImpl;
 import DAO.impl.FormularDaoImpl;
 import DAO.impl.ItemDaoImpl;
 import entities.Book;
@@ -18,7 +20,7 @@ public class FormularServiceImpl extends AbstractService implements FormularServ
     private static volatile FormularService INSTANCE = null;
 
     private FormularDao formularDao = FormularDaoImpl.getInstance();
-//    private BookDao bookDao = BookDaoImpl.getInstance();
+    private BookDao bookDao = BookDaoImpl.getInstance();
     private ItemDao itemDao = ItemDaoImpl.getInstance();
 
     @Override
@@ -81,11 +83,11 @@ public class FormularServiceImpl extends AbstractService implements FormularServ
             for (Formular formular : formulars) {
                 List<Item> items = itemDao.getByFormularId(formular.getFormularId());
                 formular.setItems(items);
-                double sum = 0;
-//                for (Item item : items) {
-//                    Book book = bookDao.get(item.getBookId());
+//                double sum = 0;
+                for (Item item : items) {
+                    Book book = bookDao.get(item.getBookId());
 //                    sum += product.getPrice() * item.getQuantity();
-//                }
+                }
                 commit();
 //                formular.setTotal(sum);
             }

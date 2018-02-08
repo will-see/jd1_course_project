@@ -79,7 +79,8 @@ public class TestBook {
 //        System.out.println(authorService.getByName("pushkin").getAuthorId());
 //        System.out.println(AuthorServiceImpl.getInstance().getByName("pushkin").getAuthorId());
         System.out.println(formularDao.getByUserId(1));
-        System.out.println(FormularServiceImpl.getInstance().getByUserId(0));
+//        System.out.println(FormularServiceImpl.getInstance().getByUserId(0));
+        System.out.println(FormularServiceImpl.getInstance().getByUserId(2));
 
 //            User user = UserServiceImpl.getInstance().createUser("valera", "user3", "user", 16, "male");
     }
