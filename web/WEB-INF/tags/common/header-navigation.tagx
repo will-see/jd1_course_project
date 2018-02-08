@@ -13,7 +13,7 @@
                 </button>
                 <a class="navbar-brand" href="#">Portfolio</a>
             </div>
-            <c:if test="${empty user or not empty user and user.role eq 'USER'}">
+            <c:if test="${empty user or not empty user and user.role eq 0}">
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
                         <c:set var="navName" value="Книги"/>
@@ -27,14 +27,14 @@
                                 </li>
                             </c:otherwise>
                         </c:choose>
-                        <c:set var="navName">Заказы</c:set>
+                        <c:set var="navName">Фрмуляр</c:set>
                         <c:choose>
-                            <c:when test="${pageName eq 'Formulars'}">
+                            <c:when test="${pageName eq 'Formular'}">
                                 <li class="active"><a href="#">${navName}</a></li>
                             </c:when>
                             <c:otherwise>
                                 <li>
-                                    <a href="${pageContext.request.contextPath}/frontController?command=formulars">${navName}</a>
+                                    <a href="${pageContext.request.contextPath}/frontController?command=formular">${navName}</a>
                                 </li>
                             </c:otherwise>
                         </c:choose>
@@ -55,7 +55,7 @@
                     </ul>
                 </div>
             </c:if>
-            <c:if test="${not empty user and user.role eq 'ADMIN'}">
+            <c:if test="${not empty user and user.role eq 1}">
 
             </c:if>
         </div>

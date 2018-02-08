@@ -6,8 +6,8 @@
 <div>
     Товары
     <div class="bookTable">
-        <c:forEach var="formular" items="${books}">
-            <div id="${formular.bookId}">${formular.name}</div>
+        <c:forEach var="book" items="${books}">
+            <div id="${book.bookId}">${book.name}</div>
         </c:forEach>
     </div>
 </div>

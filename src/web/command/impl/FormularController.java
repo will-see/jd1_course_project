@@ -19,9 +19,9 @@ public class FormularController implements Controller {
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         User user = (User)req.getSession().getAttribute("user");
-        List<Formular> formulars = formularService.getByUserId(user.getUserId());
+        List<Formular> formular = formularService.getByUserId(user.getUserId());
 
-        req.setAttribute("formulars", formulars);
+        req.setAttribute("formular", formular);
         RequestDispatcher dispatcher = req.getRequestDispatcher(MAIN_PAGE);
         dispatcher.forward(req, resp);
     }

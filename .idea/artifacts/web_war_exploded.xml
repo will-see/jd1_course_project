@@ -17,6 +17,7 @@
           <element id="library" level="project" name="jstl-1.2" />
           <element id="library" level="project" name="commons-lang3-3.7" />
           <element id="library" level="project" name="standard" />
+          <element id="library" level="project" name="lombok" />
         </element>
       </element>
     </root>

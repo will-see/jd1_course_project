@@ -3,7 +3,6 @@ package web.command.impl;
 import entities.User;
 import services.UserService;
 import services.impl.UserServiceImpl;
-import web.auth.Encoder;
 import web.command.Controller;
 
 import javax.servlet.RequestDispatcher;
@@ -12,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class LoginController implements Controller {
+public class RegisterController implements Controller {
     UserService userService = UserServiceImpl.getInstance();
 
     @Override
@@ -30,7 +29,7 @@ public class LoginController implements Controller {
         if (user != null && password.equals(user.getPassword())) {
             req.getSession().setAttribute("user", user);
             String contextPath = req.getContextPath();
-            resp.sendRedirect(contextPath+ "/frontController?command=formular");
+            resp.sendRedirect(contextPath+ "/frontController?command=formulars");
             return;
         } else {
             req.setAttribute("errorMsg", "Invalid Login or Password");

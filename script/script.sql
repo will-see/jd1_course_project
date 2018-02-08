@@ -31,13 +31,13 @@ CREATE TABLE roles (
 
 
 CREATE TABLE users (
-  userId   INT(5)                  NOT NULL AUTO_INCREMENT,
-  name     VARCHAR(20)             NOT NULL,
-  LOGIN    VARCHAR(20)             NOT NULL,
-  PASSWORD VARCHAR(25)             NOT NULL,
-  age      INT(3)                  NOT NULL,
-  sex      ENUM ('male', 'female') NOT NULL,
-  id_role  ENUM ('0', '1')         NOT NULL,
+  userId   INT(5)                      NOT NULL AUTO_INCREMENT,
+  name     VARCHAR(20)                 NOT NULL,
+  LOGIN    VARCHAR(20)                 NOT NULL,
+  PASSWORD VARCHAR(25)                 NOT NULL,
+  age      INT(3)                      NOT NULL,
+  sex      ENUM ('male', 'female')     NOT NULL,
+  id_role  ENUM ('0', '1') DEFAULT '1' NOT NULL,
   PRIMARY KEY (userId),
   FOREIGN KEY (id_role) REFERENCES roles (id_role)
 );
@@ -46,8 +46,8 @@ CREATE UNIQUE INDEX USER_LOGIN_uindex
 
 CREATE TABLE formular (
   formularId INT(5)  NOT NULL AUTO_INCREMENT,
-  userId  INT(5)  NOT NULL,
-  bookId  INT(10) NOT NULL,
+  userId     INT(5)  NOT NULL,
+  bookId     INT(10) NOT NULL,
   PRIMARY KEY (formularId),
   FOREIGN KEY (userId) REFERENCES users (userId)
   #   FOREIGN KEY (bookId) REFERENCES books (bookId)
@@ -55,9 +55,9 @@ CREATE TABLE formular (
 
 # DROP TABLE ITEM;
 CREATE TABLE ITEM (
-  ID      INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  ID         INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   formularId INT(5)          NOT NULL,
-  bookId INT(5)          NOT NULL,
+  bookId     INT(5)          NOT NULL,
   CONSTRAINT Book_fk FOREIGN KEY (bookId) REFERENCES books (bookId),
   CONSTRAINT Order_fk FOREIGN KEY (formularId) REFERENCES formular (formularId)
     ON DELETE CASCADE
@@ -94,4 +94,5 @@ INSERT INTO users (name, LOGIN, PASSWORD, age, sex, id_role) VALUES ('vasia', 'u
 INSERT INTO formular (userId, bookId) VALUES ('2', '1');
 INSERT INTO formular (userId, bookId) VALUES ('2', '2');
 
-SELECT *FROM formular;
+SELECT *
+FROM formular;

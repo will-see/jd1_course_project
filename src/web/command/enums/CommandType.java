@@ -4,18 +4,16 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import web.command.Controller;
-import web.command.impl.LoginController;
-import web.command.impl.LogoutController;
-import web.command.impl.FormularController;
-import web.command.impl.BookController;
+import web.command.impl.*;
 
 @Getter
 @AllArgsConstructor
 public enum CommandType {
     LOGIN("login.jsp", "Login", new LoginController()),
     LOGOUT("login.jsp", "Logout", new LogoutController()),
-    FORMULARS("formulars/main.jsp", "Formulars", new FormularController()),
-    BOOKS("books/main.jsp", "Books", new BookController());
+    FORMULAR("formular/main.jsp", "Formular", new FormularController()),
+    BOOKS("books/main.jsp", "Books", new BookController()),
+    REGISTER("register.jsp", "Register", new RegisterController());
 
     private String pagePath;
     private String pageName;

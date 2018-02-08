@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import static web.command.enums.CommandType.FORMULARS;
+import static web.command.enums.CommandType.FORMULAR;
 
 
 @WebFilter(urlPatterns = {"/frontController"})
@@ -32,7 +32,7 @@ public class AuthFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse res = (HttpServletResponse) response;
         CommandType type = RequestHandler.getCommand(req);
-        if (FORMULARS.equals(type)) {
+        if (FORMULAR.equals(type)) {
             String contextPath = req.getContextPath();
             HttpSession session = req.getSession();
             if((session.getAttribute("user") == null)) {
@@ -40,7 +40,7 @@ public class AuthFilter implements Filter {
                 return;
             }
         }
-//        chain.doFilter(request, response);
+        chain.doFilter(request, response);
     }
 
     @Override
