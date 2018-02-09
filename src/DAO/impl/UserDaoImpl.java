@@ -13,10 +13,10 @@ public class UserDaoImpl extends AbstractDao implements UserDao {
     private static volatile UserDao INSTANCE = null;
 
     private static final String saveUserQuery = "INSERT INTO users (name,LOGIN, password, age, sex) VALUES (?,?,?,?,?)";
-    private static final String getUserQuery = "SELECT * FROM users WHERE userId=?";
+    private static final String getUserQuery = "SELECT * FROM users WHERE login=?";
     private static final String updateUserQuery = "UPDATE users SET name=? WHERE userId=?";
     private static final String deleteUserQuery = "DELETE FROM users WHERE userId=?";
-    private static final String getUserByLoginQuery = "SELECT * FROM users WHERE LOGIN = ?";
+//    private static final String getUserByLoginQuery = "SELECT * FROM users WHERE LOGIN = ?";
 
     private PreparedStatement psSave;
     private PreparedStatement psGet;
@@ -52,12 +52,13 @@ public class UserDaoImpl extends AbstractDao implements UserDao {
         psGet.executeQuery();
         ResultSet rs = psGet.getResultSet();
         if (rs.next()) {
-            return populateProduct(rs);
+            return populateEntity(rs);
         }
         close(rs);
 
         return null;
     }
+
 
     @Override
     public void update(User user) throws SQLException {
@@ -82,11 +83,11 @@ public class UserDaoImpl extends AbstractDao implements UserDao {
 
     @Override
     public User getByLogin(String login) throws SQLException {
-        psGetByLogin = prepareStatement(getUserByLoginQuery);
+        psGetByLogin = prepareStatement(getUserQuery);
         psGetByLogin.setString(1, login);
         ResultSet rs = psGetByLogin.executeQuery();
         if (rs.next()) {
-            return populateProduct(rs);
+            return populateEntity(rs);
         }
         close(rs);
 
@@ -94,8 +95,10 @@ public class UserDaoImpl extends AbstractDao implements UserDao {
     }
 
 
-    private User populateProduct(ResultSet rs) throws SQLException {
+
+    private User populateEntity(ResultSet rs) throws SQLException {
         User user = new User();
+        user.setUserId(rs.getLong(1));
         user.setName(rs.getString(2));
         user.setLogin(rs.getString(3));
         user.setPassword(rs.getString(4));

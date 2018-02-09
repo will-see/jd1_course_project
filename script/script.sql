@@ -96,3 +96,5 @@ INSERT INTO formular (userId, bookId) VALUES ('2', '2');
 
 SELECT *
 FROM formular;
+
+SELECT *FROM users WHERE login='user1';

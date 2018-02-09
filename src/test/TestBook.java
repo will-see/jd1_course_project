@@ -2,31 +2,33 @@ package test;
 
 import DAO.BookDao;
 import DAO.FormularDao;
+import DAO.UserDao;
 import DAO.impl.BookDaoImpl;
 import DAO.impl.FormularDaoImpl;
+import DAO.impl.UserDaoImpl;
 import db.ConnectionManager;
-import entities.Book;
 import entities.Formular;
-import entities.User;
-import org.junit.Assert;
 import org.junit.Test;
 import services.AuthorService;
 import services.BookService;
+import services.FormularService;
 import services.impl.AuthorServiceImpl;
 import services.impl.BookServiceImpl;
 import services.impl.FormularServiceImpl;
-import services.impl.UserServiceImpl;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class TestBook {
     private BookDao bookDao = BookDaoImpl.getInstance();
+    private UserDao userDao = UserDaoImpl.getInstance();
     private FormularDao formularDao = FormularDaoImpl.getInstance();
     private BookService bookService = BookServiceImpl.getInstance();
     private AuthorService authorService = AuthorServiceImpl.getInstance();
+    private FormularService formularService = FormularServiceImpl.getInstance();
 
     public void initData() {}
 
@@ -63,8 +65,11 @@ public class TestBook {
 //
 //        afterSave = bookDao.getAll().size();
 //        Assert.assertEquals(beforeSave, afterSave);
-        System.out.println(bookDao.getAll());
-        System.out.println(bookDao.get(2l).getName());
+//        System.out.println(bookDao.getAll());
+
+//        System.out.println(userDao.getByLogin("user1").getUserId());
+
+//        System.out.println(UserDaoImpl.getUserQuery);
 //        System.out.println(bookDao.getByNameAndGanr("book2","ganr2"));
 //        System.out.println(bookDao.save("book2","ganr2"));
 //        Book newBook = bookDao.save(new Book("lykomorie", "skazka", 100,1,  5));
@@ -78,9 +83,17 @@ public class TestBook {
 //        System.out.println(authorService.getAll());
 //        System.out.println(authorService.getByName("pushkin").getAuthorId());
 //        System.out.println(AuthorServiceImpl.getInstance().getByName("pushkin").getAuthorId());
-        System.out.println(formularDao.getByUserId(1));
+//        System.out.println(formularDao.getByUserId(1));
 //        System.out.println(FormularServiceImpl.getInstance().getByUserId(0));
-        System.out.println(FormularServiceImpl.getInstance().getByUserId(2));
+//        System.out.println(FormularServiceImpl.getInstance().getByUserId(2));
+
+//        List<Formular> formular = formularService.getByUserId(userDao.getByLogin("user1").getUserId());
+//        System.out.println(formular.get(0).getBookId());
+        System.out.println(bookDao.get(2l));
+        System.out.println(formularDao.get(2l).getBookId());
+        System.out.println(formularDao.get(2l).getUserId());
+        System.out.println(formularDao.get(2l).getFormularId());
+
 
 //            User user = UserServiceImpl.getInstance().createUser("valera", "user3", "user", 16, "male");
     }

@@ -16,7 +16,7 @@ public class FormularDaoImpl extends AbstractDao implements FormularDao {
 
     private static final String saveQuery = "INSERT INTO FORMULAR (userId, bookId) VALUES (?, ?)";
     private static final String updateQuery = "UPDATE formular SET bookId=? WHERE formularId=?";
-    private static final String getQuery = "SELECT formularId, userId FROM formular WHERE formularId=?";
+    private static final String getQuery = "SELECT formularId, userId, bookId FROM formular WHERE userId=?";
     private static final String getAllByUserQuery = "SELECT formularId, userId FROM formular WHERE userId = ? ORDER BY formularId DESC";
     private static final String deleteQuery = "DELETE FROM formular WHERE formularId=?";
 
@@ -30,7 +30,7 @@ public class FormularDaoImpl extends AbstractDao implements FormularDao {
     public Formular save(Formular formular) throws SQLException {
         psSave = prepareStatement(saveQuery, Statement.RETURN_GENERATED_KEYS);
         psSave.setLong(1, formular.getUserId());
-        psSave.setDouble(2, formular.getBookId());
+        psSave.setLong(2, formular.getBookId());
         psSave.executeUpdate();
         ResultSet rs = psSave.getGeneratedKeys();
         if (rs.next()) {
@@ -41,9 +41,9 @@ public class FormularDaoImpl extends AbstractDao implements FormularDao {
     }
 
     @Override
-    public Formular get(Serializable id) throws SQLException {
+    public Formular get(Serializable formularId) throws SQLException {
         psGet = prepareStatement(getQuery);
-        psGet.setLong(1, (long)id);
+        psGet.setLong(1, (long)formularId);
         psGet.executeQuery();
         ResultSet rs = psGet.getResultSet();
         if (rs.next()) {
@@ -57,7 +57,7 @@ public class FormularDaoImpl extends AbstractDao implements FormularDao {
     public void update(Formular formular) throws SQLException {
         psUpdate = prepareStatement(updateQuery);
         psUpdate.setLong(1, formular.getFormularId());
-        psUpdate.setDouble(2, formular.getBookId());
+        psUpdate.setLong(2, formular.getBookId());
         psUpdate.executeUpdate();
     }
 
@@ -87,20 +87,21 @@ public class FormularDaoImpl extends AbstractDao implements FormularDao {
         Formular entity = new Formular();
         entity.setFormularId(rs.getLong(1));
         entity.setUserId(rs.getLong(2));
+        entity.setBookId(rs.getLong(3));
         return entity;
     }
 
     public static FormularDao getInstance() {
-        FormularDao formularDao = INSTANCE;
-        if (formularDao == null) {
-            synchronized (FormularDaoImpl.class) {
-                formularDao = INSTANCE;
-                if (formularDao == null) {
-                    INSTANCE = formularDao = new FormularDaoImpl();
+        FormularDao itemDao = INSTANCE;
+        if (itemDao == null) {
+            synchronized (ItemDaoImpl.class) {
+                itemDao = INSTANCE;
+                if (itemDao == null) {
+                    INSTANCE = itemDao = new FormularDaoImpl();
                 }
             }
         }
 
-        return formularDao;
+        return itemDao;
     }
 }

@@ -117,6 +117,7 @@ public class BookDaoImpl extends AbstractDao implements BookDao {
 
     private Book populateBook(ResultSet rs) throws SQLException {
         Book book = new Book();
+        book.setBookId(rs.getLong(1));
         book.setName(rs.getString(2));
         book.setGanr(rs.getString(3));
         book.setPages(rs.getInt(4));
