@@ -70,7 +70,7 @@ public class FormularDaoImpl extends AbstractDao implements FormularDao {
 
     @Override
     public List<Formular> getByUserId(long userId) throws SQLException {
-        psGetAllByUserId = prepareStatement(getAllByUserQuery);
+        psGetAllByUserId = prepareStatement(getQuery);
         psGetAllByUserId.setLong(1, userId);
         psGetAllByUserId.execute();
         ResultSet rs = psGetAllByUserId.getResultSet();
@@ -82,6 +82,21 @@ public class FormularDaoImpl extends AbstractDao implements FormularDao {
 
         return list;
     }
+
+//    @Override
+//    public List<Formular> getByUserId(long userId) throws SQLException {
+//        psGetAllByUserId = prepareStatement(getAllByUserQuery);
+//        psGetAllByUserId.setLong(1, userId);
+//        psGetAllByUserId.execute();
+//        ResultSet rs = psGetAllByUserId.getResultSet();
+//        List<Formular> list = new ArrayList<>();
+//        while (rs.next()) {
+//            list.add(populateFormular(rs));
+//        }
+//        close(rs);
+//
+//        return list;
+//    }
 
     private Formular populateFormular(ResultSet rs) throws SQLException {
         Formular entity = new Formular();

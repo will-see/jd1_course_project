@@ -8,17 +8,9 @@
   <component name="ChangeListManager">
     <list default="true" id="546a8e84-8d01-4148-b7f0-b2f8a4bd2928" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/script/script.sql" afterPath="$PROJECT_DIR$/script/script.sql" />
-      <change beforePath="$PROJECT_DIR$/src/DAO/impl/BookDaoImpl.java" afterPath="$PROJECT_DIR$/src/DAO/impl/BookDaoImpl.java" />
       <change beforePath="$PROJECT_DIR$/src/DAO/impl/FormularDaoImpl.java" afterPath="$PROJECT_DIR$/src/DAO/impl/FormularDaoImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/DAO/impl/UserDaoImpl.java" afterPath="$PROJECT_DIR$/src/DAO/impl/UserDaoImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/entities/Book.java" afterPath="$PROJECT_DIR$/src/entities/Book.java" />
-      <change beforePath="$PROJECT_DIR$/src/entities/Formular.java" afterPath="$PROJECT_DIR$/src/entities/Formular.java" />
-      <change beforePath="$PROJECT_DIR$/src/entities/User.java" afterPath="$PROJECT_DIR$/src/entities/User.java" />
       <change beforePath="$PROJECT_DIR$/src/services/impl/FormularServiceImpl.java" afterPath="$PROJECT_DIR$/src/services/impl/FormularServiceImpl.java" />
       <change beforePath="$PROJECT_DIR$/src/test/TestBook.java" afterPath="$PROJECT_DIR$/src/test/TestBook.java" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/tags/common/header-navigation.tagx" afterPath="$PROJECT_DIR$/web/WEB-INF/tags/common/header-navigation.tagx" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/view/formular/main.jsp" afterPath="$PROJECT_DIR$/web/WEB-INF/view/formular/main.jsp" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -86,11 +78,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="FormularDaoImpl.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FormularDaoImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/DAO/impl/FormularDaoImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="81" lean-forward="true" selection-start-line="17" selection-start-column="81" selection-end-line="17" selection-end-column="81" />
+            <state relative-caret-position="411">
+              <caret line="80" column="18" lean-forward="true" selection-start-line="80" selection-start-column="18" selection-end-line="80" selection-end-column="18" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -98,26 +90,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserDaoImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/DAO/impl/UserDaoImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-238">
-              <caret line="15" column="68" lean-forward="false" selection-start-line="15" selection-start-column="68" selection-end-line="15" selection-end-column="68" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TestBook.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TestBook.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/TestBook.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="347">
-              <caret line="95" column="0" lean-forward="true" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
+            <state relative-caret-position="317">
+              <caret line="79" column="22" lean-forward="true" selection-start-line="79" selection-start-column="22" selection-end-line="79" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FormularDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/DAO/FormularDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="8" column="32" lean-forward="false" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -144,26 +134,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ItemServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/services/impl/ItemServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-218">
-              <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ItemDaoImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/DAO/impl/ItemDaoImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="765">
-              <caret line="60" column="43" lean-forward="false" selection-start-line="60" selection-start-column="43" selection-end-line="60" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="item" pinned="false" current-in-tab="false">
         <entry file="das://table:/59d5294e/08392f4c-582d-4fd6-90cc-59a9648e6657/course_project.item">
           <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
@@ -185,11 +155,21 @@
       <file leaf-file-name="FormularServiceImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/services/impl/FormularServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="98" column="5" lean-forward="false" selection-start-line="98" selection-start-column="5" selection-end-line="98" selection-end-column="5" />
+            <state relative-caret-position="110">
+              <caret line="88" column="40" lean-forward="false" selection-start-line="88" selection-start-column="40" selection-end-line="88" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/services/impl/UserServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="64" column="25" lean-forward="true" selection-start-line="64" selection-start-column="25" selection-end-line="64" selection-end-column="25" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -282,9 +262,9 @@
         <option value="$PROJECT_DIR$/src/entities/Book.java" />
         <option value="$PROJECT_DIR$/src/DAO/impl/BookDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/DAO/impl/ItemDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/services/impl/FormularServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/entities/Formular.java" />
         <option value="$PROJECT_DIR$/src/DAO/impl/UserDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/services/impl/FormularServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/test/TestBook.java" />
         <option value="$PROJECT_DIR$/src/DAO/impl/FormularDaoImpl.java" />
       </list>
@@ -899,7 +879,7 @@
       <workItem from="1518055263022" duration="525000" />
       <workItem from="1518056166421" duration="8021000" />
       <workItem from="1518079024830" duration="1201000" />
-      <workItem from="1518080879383" duration="30751000" />
+      <workItem from="1518080879383" duration="32877000" />
     </task>
     <task id="LOCAL-00001" summary="smth happened((">
       <created>1517677125215</created>
@@ -971,43 +951,50 @@
       <option name="project" value="LOCAL" />
       <updated>1518098218131</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="formular almost done">
+      <created>1518177527652</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1518177527652</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="TestBook_fullTest - 2018.02.09 at 13h 39m 37s.xml">
+    <history-entry file="TestBook_fullTest - 2018.02.09 at 15h 02m 02s.xml">
       <configuration name="TestBook.fullTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestBook_fullTest - 2018.02.09 at 13h 40m 44s.xml">
+    <history-entry file="TestBook_fullTest - 2018.02.09 at 15h 02m 21s.xml">
       <configuration name="TestBook.fullTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestBook_fullTest - 2018.02.09 at 13h 42m 26s.xml">
+    <history-entry file="TestBook_fullTest - 2018.02.09 at 15h 03m 10s.xml">
       <configuration name="TestBook.fullTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestBook_fullTest - 2018.02.09 at 13h 43m 04s.xml">
+    <history-entry file="TestBook_fullTest - 2018.02.09 at 15h 03m 32s.xml">
       <configuration name="TestBook.fullTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestBook_fullTest - 2018.02.09 at 13h 44m 05s.xml">
+    <history-entry file="TestBook_fullTest - 2018.02.09 at 15h 03m 46s.xml">
       <configuration name="TestBook.fullTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestBook_fullTest - 2018.02.09 at 13h 45m 58s.xml">
+    <history-entry file="TestBook_fullTest - 2018.02.09 at 15h 04m 00s.xml">
       <configuration name="TestBook.fullTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestBook_fullTest - 2018.02.09 at 13h 48m 10s.xml">
+    <history-entry file="TestBook_fullTest - 2018.02.09 at 15h 04m 13s.xml">
       <configuration name="TestBook.fullTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestBook_fullTest - 2018.02.09 at 13h 52m 24s.xml">
+    <history-entry file="TestBook_fullTest - 2018.02.09 at 15h 04m 27s.xml">
       <configuration name="TestBook.fullTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestBook_fullTest - 2018.02.09 at 13h 54m 59s.xml">
+    <history-entry file="TestBook_fullTest - 2018.02.09 at 15h 11m 04s.xml">
       <configuration name="TestBook.fullTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestBook_fullTest - 2018.02.09 at 13h 57m 10s.xml">
+    <history-entry file="TestBook_fullTest - 2018.02.09 at 15h 11m 32s.xml">
       <configuration name="TestBook.fullTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="136000000" />
+    <option name="totallyTimeSpent" value="138126000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1096,7 +1083,8 @@
     <MESSAGE value="login done" />
     <MESSAGE value="register started" />
     <MESSAGE value="Locale done" />
-    <option name="LAST_COMMIT_MESSAGE" value="Locale done" />
+    <MESSAGE value="formular almost done" />
+    <option name="LAST_COMMIT_MESSAGE" value="formular almost done" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1112,25 +1100,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/web/command/impl/LogoutController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/messages_en.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="ResourceBundle">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/web/filters/EncodingFilter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -1331,7 +1300,7 @@
         <state relative-caret-position="119">
           <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1468,31 +1437,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://table:/59d5294e/08392f4c-582d-4fd6-90cc-59a9648e6657/course_project.item">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DAO/FormularDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/entities/Formular.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="23" lean-forward="false" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/DAO/impl/UserDaoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-238">
@@ -1503,20 +1447,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/impl/FormularServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/services/impl/UserServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="98" column="5" lean-forward="false" selection-start-line="98" selection-start-column="5" selection-end-line="98" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="408">
+          <caret line="64" column="25" lean-forward="true" selection-start-line="64" selection-start-column="25" selection-end-line="64" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/TestBook.java">
+    <entry file="file://$PROJECT_DIR$/src/DAO/FormularDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="95" column="0" lean-forward="true" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
+        <state relative-caret-position="85">
+          <caret line="8" column="32" lean-forward="false" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/59d5294e/08392f4c-582d-4fd6-90cc-59a9648e6657/course_project.formular">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/59d5294e/08392f4c-582d-4fd6-90cc-59a9648e6657/course_project.item">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/entities/Formular.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="23" lean-forward="false" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1531,17 +1495,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://table:/59d5294e/08392f4c-582d-4fd6-90cc-59a9648e6657/course_project.formular">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
+    <entry file="file://$PROJECT_DIR$/src/services/impl/FormularServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="88" column="40" lean-forward="false" selection-start-line="88" selection-start-column="40" selection-end-line="88" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/java/sql/ResultSet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="147" column="17" lean-forward="false" selection-start-line="147" selection-start-column="17" selection-end-line="147" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DAO/impl/FormularDaoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="81" lean-forward="true" selection-start-line="17" selection-start-column="81" selection-end-line="17" selection-end-column="81" />
+        <state relative-caret-position="411">
+          <caret line="80" column="18" lean-forward="true" selection-start-line="80" selection-start-column="18" selection-end-line="80" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/TestBook.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="79" column="22" lean-forward="true" selection-start-line="79" selection-start-column="22" selection-end-line="79" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

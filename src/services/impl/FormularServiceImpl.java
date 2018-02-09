@@ -78,22 +78,22 @@ public class FormularServiceImpl extends AbstractService implements FormularServ
     @Override
     public List<Formular> getByUserId(long userId) {
         try {
-            startTransaction();
-            List<Formular> formulars = formularDao.getByUserId(userId);
-            for (Formular formular : formulars) {
-                List<Item> items = itemDao.getByFormularId(formular.getFormularId());
-                formular.setItems(items);
+//            startTransaction();
+//            List<Formular> formulars = formularDao.getByUserId(userId);
+//            for (Formular formular : formulars) {
+//                List<Item> items = itemDao.getByFormularId(formular.getFormularId());
+//                formular.setItems(items);
 //                double sum = 0;
-                for (Item item : items) {
-                    Book book = bookDao.get(item.getBookId());
+//                for (Item item : items) {
+//                    Book book = bookDao.get(item.getBookId());
 //                    sum += product.getPrice() * item.getQuantity();
-                }
-                commit();
+//                }
+//                commit();
 //                formular.setTotal(sum);
-            }
-            return formulars;
+//            }
+            return formularDao.getByUserId(userId);
         } catch (SQLException e) {
-            rollback();
+//            rollback();
             throw new ServiceException("Error getting Formularss by userId" + userId);
         }
     }

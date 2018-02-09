@@ -87,12 +87,13 @@ public class TestBook {
 //        System.out.println(FormularServiceImpl.getInstance().getByUserId(0));
 //        System.out.println(FormularServiceImpl.getInstance().getByUserId(2));
 
-//        List<Formular> formular = formularService.getByUserId(userDao.getByLogin("user1").getUserId());
-//        System.out.println(formular.get(0).getBookId());
-        System.out.println(bookDao.get(2l));
-        System.out.println(formularDao.get(2l).getBookId());
-        System.out.println(formularDao.get(2l).getUserId());
-        System.out.println(formularDao.get(2l).getFormularId());
+        List<Formular> formular = formularService.getByUserId(userDao.getByLogin("user1").getUserId());
+        System.out.println(formular.get(0).getBookId());
+//        System.out.println(bookDao.get(2l));
+//        System.out.println(formularDao.get(2l).getBookId());
+//        System.out.println(formularDao.get(2l).getUserId());
+//        System.out.println(formularDao.get(2l).getFormularId());
+        System.out.println(formularDao.getByUserId(2l));
 
 
 //            User user = UserServiceImpl.getInstance().createUser("valera", "user3", "user", 16, "male");
