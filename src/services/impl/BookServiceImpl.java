@@ -2,6 +2,7 @@ package services.impl;
 
 import DAO.BookDao;
 import DAO.impl.BookDaoImpl;
+import dto.BookDto;
 import entities.Book;
 import services.ServiceException;
 
@@ -67,10 +68,10 @@ public class BookServiceImpl extends AbstractService implements services.BookSer
     }
 
     @Override
-    public List<Book> getAll() {
+    public List<BookDto> getAll() {
         try {
             startTransaction();
-            List<Book> list = bookDao.getAll();
+            List<BookDto> list = bookDao.getAll();
             commit();
             return list;
         } catch (SQLException e) {

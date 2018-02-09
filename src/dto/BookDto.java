@@ -1,0 +1,18 @@
+package dto;
+
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+    @Data
+    @NoArgsConstructor
+
+public class BookDto {
+
+        private String name;
+        private String ganr;
+        private int pages;
+        private String author;
+        private int bookCount;
+
+
+    }

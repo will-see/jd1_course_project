@@ -98,3 +98,5 @@ SELECT *
 FROM formular;
 
 SELECT *FROM users WHERE login='user1';
+
+SELECT name, ganr,pages, author_name, book_count FROM books JOIN authors a ON books.authorId = a.id_author;

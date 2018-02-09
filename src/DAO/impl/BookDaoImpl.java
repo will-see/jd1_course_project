@@ -1,6 +1,7 @@
 package DAO.impl;
 
 import DAO.BookDao;
+import dto.BookDto;
 import entities.Book;
 
 import java.io.Serializable;
@@ -14,12 +15,12 @@ import java.util.List;
 public class BookDaoImpl extends AbstractDao implements BookDao {
     private static volatile BookDao INSTANCE = null;
 
-    private static final String saveProductQuery = "INSERT INTO books (name, ganr, pages, authorId,book_count ) VALUES (?, ?, ?, ?, ?)";
-    private static final String updateProductQuery = "UPDATE books SET book_count=? WHERE bookId=?";
-    private static final String getProductQuery = "SELECT * FROM books WHERE bookId=?";
-    private static final String getAllProductQuery = "SELECT * FROM books";
+    private static final String saveBookQuery = "INSERT INTO books (name, ganr, pages, authorId,book_count ) VALUES (?, ?, ?, ?, ?)";
+    private static final String updateBookQuery = "UPDATE books SET book_count=? WHERE bookId=?";
+    private static final String getBookByIdQuery = "SELECT * FROM books WHERE bookId=?";
+    private static final String getAllBookQuery = "SELECT name, ganr,pages, author_name, book_count FROM books JOIN authors a ON books.authorId = a.id_author;";
     private static final String getByNameAndGanrQuery = "SELECT * FROM books WHERE name=? AND ganr=?";
-    private static final String deleteProductQuery = "DELETE FROM books WHERE bookId=?";
+    private static final String deleteBookQuery = "DELETE FROM books WHERE bookId=?";
 
     private PreparedStatement psSave;
     private PreparedStatement psUpdate;
@@ -33,7 +34,7 @@ public class BookDaoImpl extends AbstractDao implements BookDao {
 
     @Override
     public Book save(Book book) throws SQLException {
-        psSave = prepareStatement(saveProductQuery, Statement.RETURN_GENERATED_KEYS);
+        psSave = prepareStatement(saveBookQuery, Statement.RETURN_GENERATED_KEYS);
         psSave.setString(1, book.getName());
         psSave.setString(2, book.getGanr());
         psSave.setInt(3, book.getPages());
@@ -50,7 +51,7 @@ public class BookDaoImpl extends AbstractDao implements BookDao {
 
     @Override
     public Book get(Serializable bookId) throws SQLException {
-        psGet = prepareStatement(getProductQuery);
+        psGet = prepareStatement(getBookByIdQuery);
         psGet.setLong(1, (long) bookId);
         psGet.executeQuery();
         ResultSet rs = psGet.getResultSet();
@@ -64,7 +65,7 @@ public class BookDaoImpl extends AbstractDao implements BookDao {
 
     @Override
     public void update(Book book) throws SQLException {
-        psUpdate = prepareStatement(updateProductQuery);
+        psUpdate = prepareStatement(updateBookQuery);
         psUpdate.setLong(6, book.getBookId());
         psUpdate.setString(1, book.getName());
         psUpdate.setString(2, book.getGanr());
@@ -76,7 +77,7 @@ public class BookDaoImpl extends AbstractDao implements BookDao {
 
     @Override
     public int delete(Serializable bookId) throws SQLException {
-        psDelete = prepareStatement(deleteProductQuery);
+        psDelete = prepareStatement(deleteBookQuery);
         psDelete.setLong(1, (long) bookId);
         return psDelete.executeUpdate();
     }
@@ -103,13 +104,13 @@ public class BookDaoImpl extends AbstractDao implements BookDao {
     }
 
     @Override
-    public List<Book> getAll() throws SQLException {
-        psGetAll = prepareStatement(getAllProductQuery);
+    public List<BookDto> getAll() throws SQLException {
+        psGetAll = prepareStatement(getAllBookQuery);
         psGetAll.execute();
         ResultSet rs = psGetAll.getResultSet();
-        List<Book> list = new ArrayList<>();
+        List<BookDto> list = new ArrayList<>();
         while (rs.next()) {
-            list.add(populateBook(rs));
+            list.add(populateBookDto(rs));
         }
         close(rs);
         return list;
@@ -124,6 +125,15 @@ public class BookDaoImpl extends AbstractDao implements BookDao {
         book.setAuthorId(rs.getLong(5));
         book.setBookCount(rs.getInt(6));
         return book;
+    }
+    private BookDto populateBookDto(ResultSet rs) throws SQLException {
+        BookDto bookDto = new BookDto();
+        bookDto.setName(rs.getString(1));
+        bookDto.setGanr(rs.getString(2));
+        bookDto.setPages(rs.getInt(3));
+        bookDto.setAuthor(rs.getString(4));
+        bookDto.setBookCount(rs.getInt(5));
+        return bookDto;
     }
 
     public static BookDao getInstance() {

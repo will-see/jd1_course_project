@@ -26,7 +26,7 @@
                     <td class="col-md-1">${book.name}</td>
                     <div class="col-md-2">
                         <td class="col-md-1">${book.ganr}</td>
-                        <td class="col-md-1">${book.bookCount}</td>
+                        <td class="col-md-1">${book.author}</td>
                         <%--<td class="col-md-1"><input id="${product.id}" class="btn-primary addProductBtn" type="button" title="Добавить в корзину" value="+"/></td>--%>
                         <%--<td class="col-md-1"><input id="${product.id}" class="btn-primary reduceProductBtn" type="button" title="Удалить 1 из корзину" value="-"/></td>--%>
                     </div>

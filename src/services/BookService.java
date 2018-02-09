@@ -1,5 +1,6 @@
 package services;
 
+import dto.BookDto;
 import entities.Book;
 
 import java.io.Serializable;
@@ -11,5 +12,5 @@ public interface BookService {
     void update(Book book);
     int delete(Serializable id);
     Book getByNameAndGanr(String name, String ganr);
-    List<Book> getAll();
+    List<BookDto> getAll();
 }
