@@ -94,7 +94,11 @@ public class TestBook {
 //        System.out.println(formularDao.get(2l).getUserId());
 //        System.out.println(formularDao.get(2l).getFormularId());
 //        System.out.println(formularDao.getByUserId(2l));
-        System.out.println(bookDao.getAll());
+//        System.out.println(bookDao.getAll());
+
+        System.out.println(formularDao.getByUserId(2l));
+        System.out.println(formularDao.getUserFormular(2l));
+        System.out.println(formularService.getUserFormular(2l));
 
 
 //            User user = UserServiceImpl.getInstance().createUser("valera", "user3", "user", 16, "male");

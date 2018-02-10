@@ -93,6 +93,7 @@ INSERT INTO users (name, LOGIN, PASSWORD, age, sex, id_role) VALUES ('vasia', 'u
 
 INSERT INTO formular (userId, bookId) VALUES ('2', '1');
 INSERT INTO formular (userId, bookId) VALUES ('2', '2');
+INSERT INTO formular (userId, bookId) VALUES ('3', '3');
 
 SELECT *
 FROM formular;
@@ -100,3 +101,5 @@ FROM formular;
 SELECT *FROM users WHERE login='user1';
 
 SELECT name, ganr,pages, author_name, book_count FROM books JOIN authors a ON books.authorId = a.id_author;
+
+SELECT books.name, authors.author_name FROM books JOIN formular on formular.bookId=books.bookId JOIN authors ON books.authorId = id_author WHERE userId=2;

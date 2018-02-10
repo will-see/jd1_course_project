@@ -6,6 +6,7 @@ import DAO.ItemDao;
 import DAO.impl.BookDaoImpl;
 import DAO.impl.FormularDaoImpl;
 import DAO.impl.ItemDaoImpl;
+import dto.FormularDto;
 import entities.Book;
 import entities.Formular;
 import entities.Item;
@@ -96,6 +97,16 @@ public class FormularServiceImpl extends AbstractService implements FormularServ
 //            rollback();
             throw new ServiceException("Error getting Formularss by userId" + userId);
         }
+    }
+
+    @Override
+    public List<FormularDto> getUserFormular(long userId) {
+        try {
+        return formularDao.getUserFormular(userId);
+    } catch (SQLException e) {
+//            rollback();
+        throw new ServiceException("Error getting User Formular by userId" + userId);
+    }
     }
 
     public static FormularService getInstance() {

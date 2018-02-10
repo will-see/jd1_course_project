@@ -1,5 +1,6 @@
 package services;
 
+import dto.FormularDto;
 import entities.Formular;
 
 import java.io.Serializable;
@@ -14,4 +15,5 @@ public interface FormularService {
     int delete(Serializable id);
 
     List<Formular> getByUserId(long userId);
+    List<FormularDto> getUserFormular(long userId);
 }

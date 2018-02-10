@@ -1,6 +1,7 @@
 package DAO.impl;
 
 import DAO.FormularDao;
+import dto.FormularDto;
 import entities.Formular;
 
 import java.io.Serializable;
@@ -17,6 +18,7 @@ public class FormularDaoImpl extends AbstractDao implements FormularDao {
     private static final String saveQuery = "INSERT INTO FORMULAR (userId, bookId) VALUES (?, ?)";
     private static final String updateQuery = "UPDATE formular SET bookId=? WHERE formularId=?";
     private static final String getQuery = "SELECT formularId, userId, bookId FROM formular WHERE userId=?";
+    private static final String getUserFormularQuery = "SELECT books.name, authors.author_name FROM books JOIN formular on formular.bookId=books.bookId JOIN authors ON books.authorId = id_author WHERE userId=?";
     private static final String getAllByUserQuery = "SELECT formularId, userId FROM formular WHERE userId = ? ORDER BY formularId DESC";
     private static final String deleteQuery = "DELETE FROM formular WHERE formularId=?";
 
@@ -24,6 +26,7 @@ public class FormularDaoImpl extends AbstractDao implements FormularDao {
     private PreparedStatement psUpdate;
     private PreparedStatement psGet;
     private PreparedStatement psGetAllByUserId;
+    private PreparedStatement psGetUserformularByUserId;
     private PreparedStatement psDelete;
 
     @Override
@@ -83,7 +86,21 @@ public class FormularDaoImpl extends AbstractDao implements FormularDao {
         return list;
     }
 
-//    @Override
+    @Override
+    public List<FormularDto> getUserFormular(long userId) throws SQLException {
+        psGetUserformularByUserId = prepareStatement(getUserFormularQuery);
+        psGetUserformularByUserId.setLong(1, userId);
+        psGetUserformularByUserId.execute();
+        ResultSet rs = psGetUserformularByUserId.getResultSet();
+        List<FormularDto> list = new ArrayList<>();
+        while (rs.next()) {
+            list.add(populateFormularDto(rs));
+        }
+        close(rs);
+
+        return list;
+    }
+    //    @Override
 //    public List<Formular> getByUserId(long userId) throws SQLException {
 //        psGetAllByUserId = prepareStatement(getAllByUserQuery);
 //        psGetAllByUserId.setLong(1, userId);
@@ -103,6 +120,13 @@ public class FormularDaoImpl extends AbstractDao implements FormularDao {
         entity.setFormularId(rs.getLong(1));
         entity.setUserId(rs.getLong(2));
         entity.setBookId(rs.getLong(3));
+        return entity;
+    }
+    private FormularDto populateFormularDto(ResultSet rs) throws SQLException {
+        FormularDto entity = new FormularDto();
+//        entity.setFormularId(rs.getLong(1));
+        entity.setName(rs.getString(1));
+        entity.setAuthor(rs.getString(2));
         return entity;
     }
 

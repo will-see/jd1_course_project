@@ -9,7 +9,7 @@
     <fmt:setLocale value="${sessionScope.locale}"/>
     <fmt:setBundle basename="messages" var="i18n"/>
     <div class="container-fluid">
-        <div class="col-md-5">Книги</div>
+        <div class="col-md-5"><b><fmt:message bundle="${i18n}" key="books.title"/></b></div>
         <table class="table">
             <tr>
                 <th class="col-md-1"> <fmt:message bundle="${i18n}" key="books.name"/></th>
