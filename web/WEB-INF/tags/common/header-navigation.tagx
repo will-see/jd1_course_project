@@ -3,7 +3,11 @@
           version="2.0"
           xmlns:fmt="http://java.sun.com/jsp/jstl/fmt">
 
+
     <nav class="navbar navbar-inverse">
+        <fmt:setLocale value="${sessionScope.locale}"/>
+        <fmt:setBundle basename="messages" var="i18n"/>
+
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -17,7 +21,7 @@
             <c:if test="${empty user or not empty user and user.role eq 0}">
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
-                        <c:set var="navName" value="Книги"/>
+                        <c:set var="navName"><fmt:message bundle="${i18n}" key="books.title"/></c:set>
                         <c:choose>
                             <c:when test="${pageName eq 'Books'}">
                                 <li class="active"><a href="#">${navName}</a></li>
@@ -26,7 +30,7 @@
                                 <li> <a href="${pageContext.request.contextPath}/frontController?command=books">${navName}</a></li>
                             </c:otherwise>
                         </c:choose>
-                        <c:set var="navName">Фрмуляр</c:set>
+                        <c:set var="navName"><fmt:message bundle="${i18n}" key="formular.title"/></c:set>
                         <c:choose>
                             <c:when test="${pageName eq 'Formular'}">
                                 <li class="active"><a href="#">${navName}</a></li>

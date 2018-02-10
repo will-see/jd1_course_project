@@ -1,20 +1,24 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <div style="font-size: large">
     <c:if test="${not empty message}">INFO : ${message}</c:if> <br/>
 </div>
 <div>
+
+    <fmt:setLocale value="${sessionScope.locale}"/>
+    <fmt:setBundle basename="messages" var="i18n"/>
     <div class="container-fluid">
-        <div class="col-md-3">Книги</div>
+        <div class="col-md-5">Книги</div>
         <table class="table">
             <tr>
-                <th class="col-md-1">Supplier</th>
-                <div class="col-md-2">
-                    <th class="col-md-1">Model</th>
-                    <th class="col-md-1">Quantity</th>
+                <th class="col-md-1"> <fmt:message bundle="${i18n}" key="books.name"/></th>
+                    <th class="col-md-1"><fmt:message bundle="${i18n}" key="books.ganr"/></th>
+                    <th class="col-md-1"><fmt:message bundle="${i18n}" key="books.pages"/></th>
+                    <th class="col-md-1"><fmt:message bundle="${i18n}" key="books.author"/></th>
+                    <th class="col-md-1"><fmt:message bundle="${i18n}" key="books.quantity"/></th>
                     <%--<th class="col-md-1">Price</th>--%>
                     <%--<th class="col-md-1"></th>--%>
-                </div>
             </tr>
             <script>
                 function callAlert(bookId) {
@@ -26,7 +30,9 @@
                     <td class="col-md-1">${book.name}</td>
                     <div class="col-md-2">
                         <td class="col-md-1">${book.ganr}</td>
+                        <td class="col-md-1">${book.pages}</td>
                         <td class="col-md-1">${book.author}</td>
+                        <td class="col-md-1">${book.bookCount}</td>
                         <%--<td class="col-md-1"><input id="${product.id}" class="btn-primary addProductBtn" type="button" title="Добавить в корзину" value="+"/></td>--%>
                         <%--<td class="col-md-1"><input id="${product.id}" class="btn-primary reduceProductBtn" type="button" title="Удалить 1 из корзину" value="-"/></td>--%>
                     </div>

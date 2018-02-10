@@ -1,17 +1,22 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<div class="container text-center">
+    <fmt:setLocale value="${sessionScope.locale}"/>
+    <fmt:setBundle basename="messages" var="i18n"/>
+
+    <b><fmt:message bundle="${i18n}" key="formular.yourBooks"/></b>
 
 <TABLE>
     <tr>
-        <th>Order Id</th>
-        <th>User id</th>
-        <th>Sum</th>
+        <th width=25>№</th>
+        <th><fmt:message bundle="${i18n}" key="books.name"/></th>
     </tr>
 
-    <c:forEach var="formular" items="${formular}" >
+    <c:forEach var="formular" items="${formular}" varStatus="status">
         <tr>
-            <td>${formular.formularId}</td>
-            <td>${formular.userId}</td>
+            <td>${status.index +1}</td>
             <td>${formular.bookId}</td>
         </tr>
     </c:forEach>
@@ -27,3 +32,4 @@
         <%--</tr>--%>
     <%--</c:forEach>--%>
 </TABLE>
+</div>
