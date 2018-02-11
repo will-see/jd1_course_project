@@ -6,20 +6,20 @@
     <fmt:setLocale value="${sessionScope.locale}"/>
     <fmt:setBundle basename="messages" var="i18n"/>
 
-    <b><fmt:message bundle="${i18n}" key="formular.yourBooks"/></b>
+    <b><fmt:message bundle="${i18n}" key="users.title"/></b>
 
 <TABLE>
     <tr>
         <th width=35>№</th>
-        <th width=200><fmt:message bundle="${i18n}" key="books.name"/></th>
-        <th><fmt:message bundle="${i18n}" key="books.author"/></th>
+        <%--<th width=200><fmt:message bundle="${i18n}" key="books.name"/></th>--%>
+        <%--<th><fmt:message bundle="${i18n}" key="books.author"/></th>--%>
     </tr>
 
     <c:forEach var="formular" items="${formularDto}" varStatus="status">
         <tr>
             <td>${status.index +1}</td>
-            <td>${formular.name}</td>
-            <td>${formular.author}</td>
+            <%--<td>${formular.name}</td>--%>
+            <%--<td>${formular.author}</td>--%>
         </tr>
     </c:forEach>
     <%--<c:forEach var="book" items="${books}" varStatus="status">--%>

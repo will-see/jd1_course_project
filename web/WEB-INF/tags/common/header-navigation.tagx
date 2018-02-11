@@ -27,7 +27,9 @@
                                 <li class="active"><a href="#">${navName}</a></li>
                             </c:when>
                             <c:otherwise>
-                                <li> <a href="${pageContext.request.contextPath}/frontController?command=books">${navName}</a></li>
+                                <li>
+                                    <a href="${pageContext.request.contextPath}/frontController?command=books">${navName}</a>
+                                </li>
                             </c:otherwise>
                         </c:choose>
                         <c:set var="navName"><fmt:message bundle="${i18n}" key="formular.title"/></c:set>
@@ -44,8 +46,10 @@
                         <fmt:setLocale value="${sessionScope.locale}"/>
                         <fmt:setBundle basename="messages" var="i18n"/>
                         <c:url var="path" value="/frontController?command=${sessionScope.pageName}"></c:url>
-                        <li><a href="${path}&amp;locale=ru"><fmt:message key="header.locale.ru" bundle="${i18n}"/></a></li>
-                        <li><a href="${path}&amp;locale=en"><fmt:message key="header.locale.en" bundle="${i18n}"/></a></li>
+                        <li><a href="${path}&amp;locale=ru"><fmt:message key="header.locale.ru" bundle="${i18n}"/></a>
+                        </li>
+                        <li><a href="${path}&amp;locale=en"><fmt:message key="header.locale.en" bundle="${i18n}"/></a>
+                        </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <c:if test="${not empty user}">
@@ -54,23 +58,79 @@
                         </c:if>
                         <!--<c:if test="${empty user and not (pageName eq 'Login')}">-->
 
-                            <!--<li><a href="${pageContext.request.contextPath}/frontController?command=login"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>-->
+                        <!--<li><a href="${pageContext.request.contextPath}/frontController?command=login"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>-->
                         <!--</c:if>-->
 
                         <c:choose>
                             <c:when test="${empty user and not (not pageName eq 'Login')}">
-                                <li><a href="${pageContext.request.contextPath}/frontController?command=login"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+                                <li><a href="${pageContext.request.contextPath}/frontController?command=login"><span
+                                        class="glyphicon glyphicon-log-in"></span>Login</a></li>
                             </c:when>
                             <c:otherwise>
-                                <li><a href="${pageContext.request.contextPath}/frontController?command=logout"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+                                <li><a href="${pageContext.request.contextPath}/frontController?command=logout"><span
+                                        class="glyphicon glyphicon-log-out"></span>Logout</a></li>
                             </c:otherwise>
                         </c:choose>
 
                     </ul>
                 </div>
-            <!--</c:if>-->
-            <!--<c:if test="${not empty user and user.role eq 1}">-->
+            </c:if>
+            <c:if test="${not empty user and user.role eq 1}">
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <c:set var="navName"><fmt:message bundle="${i18n}" key="books.title"/></c:set>
+                        <c:choose>
+                            <c:when test="${pageName eq 'Books'}">
+                                <li class="active"><a href="#">${navName}</a></li>
+                            </c:when>
+                            <c:otherwise>
+                                <li>
+                                    <a href="${pageContext.request.contextPath}/frontController?command=books">${navName}</a>
+                                </li>
+                            </c:otherwise>
+                        </c:choose>
+                        <c:set var="navName"><fmt:message bundle="${i18n}" key="formular.title"/></c:set>
+                        <c:choose>
+                            <c:when test="${pageName eq 'Formular'}">
+                                <li class="active"><a href="#">${navName}</a></li>
+                            </c:when>
+                            <c:otherwise>
+                                <li>
+                                    <a href="${pageContext.request.contextPath}/frontController?command=formular">${navName}</a>
+                                </li>
+                            </c:otherwise>
+                        </c:choose>
+                        <fmt:setLocale value="${sessionScope.locale}"/>
+                        <fmt:setBundle basename="messages" var="i18n"/>
+                        <c:url var="path" value="/frontController?command=${sessionScope.pageName}"></c:url>
+                        <li><a href="${path}&amp;locale=ru"><fmt:message key="header.locale.ru" bundle="${i18n}"/></a>
+                        </li>
+                        <li><a href="${path}&amp;locale=en"><fmt:message key="header.locale.en" bundle="${i18n}"/></a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <c:if test="${not empty user}">
+                            <li><span class="text">Hi, ${user.name}!</span></li>
+                            <li><span class="text">Hi, ${user.userId}!</span></li>
+                        </c:if>
+                        <!--<c:if test="${empty user and not (pageName eq 'Login')}">-->
 
+                        <!--<li><a href="${pageContext.request.contextPath}/frontController?command=login"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>-->
+                        <!--</c:if>-->
+
+                        <c:choose>
+                            <c:when test="${empty user and not (not pageName eq 'Login')}">
+                                <li><a href="${pageContext.request.contextPath}/frontController?command=login"><span
+                                        class="glyphicon glyphicon-log-in"></span>Login</a></li>
+                            </c:when>
+                            <c:otherwise>
+                                <li><a href="${pageContext.request.contextPath}/frontController?command=logout"><span
+                                        class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+                            </c:otherwise>
+                        </c:choose>
+
+                    </ul>
+                </div>
             </c:if>
         </div>
     </nav>
