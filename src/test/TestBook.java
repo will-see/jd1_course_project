@@ -7,14 +7,17 @@ import DAO.impl.BookDaoImpl;
 import DAO.impl.FormularDaoImpl;
 import DAO.impl.UserDaoImpl;
 import db.ConnectionManager;
+import dto.UsersDto;
 import entities.Formular;
 import org.junit.Test;
 import services.AuthorService;
 import services.BookService;
 import services.FormularService;
+import services.UserService;
 import services.impl.AuthorServiceImpl;
 import services.impl.BookServiceImpl;
 import services.impl.FormularServiceImpl;
+import services.impl.UserServiceImpl;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -29,6 +32,7 @@ public class TestBook {
     private BookService bookService = BookServiceImpl.getInstance();
     private AuthorService authorService = AuthorServiceImpl.getInstance();
     private FormularService formularService = FormularServiceImpl.getInstance();
+    private UserService userService = UserServiceImpl.getInstance();
 
     public void initData() {}
 
@@ -96,9 +100,12 @@ public class TestBook {
 //        System.out.println(formularDao.getByUserId(2l));
 //        System.out.println(bookDao.getAll());
 
-        System.out.println(formularDao.getByUserId(2l));
-        System.out.println(formularDao.getUserFormular(2l));
-        System.out.println(formularService.getUserFormular(2l));
+//        System.out.println(formularDao.getByUserId(2l));
+//        System.out.println(formularDao.getUserFormular(2l));
+        System.out.println(userDao.getAll());
+        System.out.println(userService.getAll());
+//        System.out.println(formularService.getUserFormular(2l));
+//        userService.createUser("vasia","vasia","vasia",10,"male");
 
 
 //            User user = UserServiceImpl.getInstance().createUser("valera", "user3", "user", 16, "male");

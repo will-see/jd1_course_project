@@ -1,7 +1,9 @@
 package services;
 
+import dto.UsersDto;
 import entities.User;
 import java.io.Serializable;
+import java.util.List;
 
 public interface UserService {
 
@@ -11,4 +13,5 @@ public interface UserService {
     int delete(Serializable id);
 
     User getByLogin(String login);
+    List<UsersDto> getAll();
 }

@@ -103,3 +103,14 @@ SELECT *FROM users WHERE login='user1';
 SELECT name, ganr,pages, author_name, book_count FROM books JOIN authors a ON books.authorId = a.id_author;
 
 SELECT books.name, authors.author_name FROM books JOIN formular on formular.bookId=books.bookId JOIN authors ON books.authorId = id_author WHERE userId=2;
+SELECT users.userId, name, login,age, sex,role,count(bookId)
+FROM users JOIN roles ON users.id_role = roles.id_role
+  LEFT JOIN formular ON users.userId = formular.userId;
+
+SELECT users.userId, name, login,age, sex,role, count(bookId)
+FROM users JOIN roles ON users.id_role = roles.id_role
+  LEFT JOIN formular ON users.userId = formular.userId
+  GROUP BY name
+ORDER BY users.userId;
+
+SELECT count(name)FROM books;

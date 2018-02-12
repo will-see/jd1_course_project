@@ -7,19 +7,30 @@
     <fmt:setBundle basename="messages" var="i18n"/>
 
     <b><fmt:message bundle="${i18n}" key="users.title"/></b>
+    <br>
+    <br>
 
 <TABLE>
     <tr>
-        <th width=35>№</th>
-        <%--<th width=200><fmt:message bundle="${i18n}" key="books.name"/></th>--%>
-        <%--<th><fmt:message bundle="${i18n}" key="books.author"/></th>--%>
+        <th width=35>ID</th>
+        <th width=120><fmt:message bundle="${i18n}" key="users.name"/></th>
+        <th width=120><fmt:message bundle="${i18n}" key="users.login"/></th>
+        <th width=120><fmt:message bundle="${i18n}" key="users.age"/></th>
+        <th width=120><fmt:message bundle="${i18n}" key="users.sex"/></th>
+        <th width=120><fmt:message bundle="${i18n}" key="users.booksGot"/></th>
+        <th width=120><fmt:message bundle="${i18n}" key="users.booksGot"/></th>
     </tr>
 
-    <c:forEach var="formular" items="${formularDto}" varStatus="status">
+    <c:forEach var="users" items="${usersDto}" varStatus="status">
         <tr>
-            <td>${status.index +1}</td>
-            <%--<td>${formular.name}</td>--%>
-            <%--<td>${formular.author}</td>--%>
+            <%--<td>${status.index +1}</td>--%>
+            <td>${users.userId}</td>
+            <td>${users.name}</td>
+            <td>${users.login}</td>
+            <td>${users.age}</td>
+            <td>${users.sex}</td>
+            <td>${users.booksGot}</td>
+            <td>${users.booksGot}</td>
         </tr>
     </c:forEach>
     <%--<c:forEach var="book" items="${books}" varStatus="status">--%>

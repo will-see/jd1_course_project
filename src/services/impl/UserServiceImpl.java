@@ -2,12 +2,14 @@ package services.impl;
 
 import DAO.UserDao;
 import DAO.impl.UserDaoImpl;
+import dto.UsersDto;
 import entities.User;
 import services.ServiceException;
 import services.UserService;
 
 import java.io.Serializable;
 import java.sql.SQLException;
+import java.util.List;
 
 public class UserServiceImpl extends AbstractService implements UserService {
     private static volatile UserService INSTANCE = null;
@@ -67,6 +69,16 @@ public class UserServiceImpl extends AbstractService implements UserService {
             throw new ServiceException("Error getting User by login" + login);
         }
     }
+
+    @Override
+    public List<UsersDto> getAll() {
+        try {
+            return userDao.getAll();
+        } catch (SQLException e) {
+            throw new ServiceException("Error getting Users");
+        }
+    }
+
     public static UserService getInstance() {
         UserService userService = INSTANCE;
         if (userService == null) {

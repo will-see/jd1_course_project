@@ -100,6 +100,17 @@
                                 </li>
                             </c:otherwise>
                         </c:choose>
+                        <c:set var="navName"><fmt:message bundle="${i18n}" key="users.title"/></c:set>
+                        <c:choose>
+                            <c:when test="${pageName eq 'Users'}">
+                                <li class="active"><a href="#">${navName}</a></li>
+                            </c:when>
+                            <c:otherwise>
+                                <li>
+                                    <a href="${pageContext.request.contextPath}/frontController?command=users">${navName}</a>
+                                </li>
+                            </c:otherwise>
+                        </c:choose>
                         <fmt:setLocale value="${sessionScope.locale}"/>
                         <fmt:setBundle basename="messages" var="i18n"/>
                         <c:url var="path" value="/frontController?command=${sessionScope.pageName}"></c:url>

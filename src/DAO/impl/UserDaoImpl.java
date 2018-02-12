@@ -1,6 +1,7 @@
 package DAO.impl;
 
 import DAO.UserDao;
+import dto.UsersDto;
 import entities.User;
 
 import java.io.Serializable;
@@ -8,6 +9,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserDaoImpl extends AbstractDao implements UserDao {
     private static volatile UserDao INSTANCE = null;
@@ -16,6 +19,11 @@ public class UserDaoImpl extends AbstractDao implements UserDao {
     private static final String getUserQuery = "SELECT * FROM users WHERE login=?";
     private static final String updateUserQuery = "UPDATE users SET name=? WHERE userId=?";
     private static final String deleteUserQuery = "DELETE FROM users WHERE userId=?";
+    private static final String getAllUsersDto = "SELECT users.userId, name, login,age, sex,role, count(bookId)\n" +
+            "FROM users JOIN roles ON users.id_role = roles.id_role\n" +
+            "  LEFT JOIN formular ON users.userId = formular.userId\n" +
+            "  GROUP BY name\n" +
+            "ORDER BY users.userId;";
 //    private static final String getUserByLoginQuery = "SELECT * FROM users WHERE LOGIN = ?";
 
     private PreparedStatement psSave;
@@ -23,6 +31,7 @@ public class UserDaoImpl extends AbstractDao implements UserDao {
     private PreparedStatement psUpdate;
     private PreparedStatement psDelete;
     private PreparedStatement psGetByLogin;
+    private PreparedStatement psGetAllDto;
 
     private UserDaoImpl() {
     }
@@ -94,7 +103,18 @@ public class UserDaoImpl extends AbstractDao implements UserDao {
         return null;
     }
 
-
+    @Override
+    public List<UsersDto> getAll() throws SQLException {
+        psGetAllDto = prepareStatement(getAllUsersDto);
+        psGetAllDto.execute();
+        ResultSet rs = psGetAllDto.getResultSet();
+        List<UsersDto> list = new ArrayList<>();
+        while (rs.next()) {
+            list.add(populateUsersDto(rs));
+        }
+        close(rs);
+        return list;
+    }
 
     private User populateEntity(ResultSet rs) throws SQLException {
         User user = new User();
@@ -106,6 +126,18 @@ public class UserDaoImpl extends AbstractDao implements UserDao {
         user.setSex(rs.getString(6));
         user.setRole(rs.getInt(7));
         return user;
+    }
+
+    private UsersDto populateUsersDto(ResultSet rs) throws SQLException {
+        UsersDto usersDto = new UsersDto();
+        usersDto.setUserId(rs.getLong(1));
+        usersDto.setName(rs.getString(2));
+        usersDto.setLogin(rs.getString(3));
+        usersDto.setAge(rs.getInt(4));
+        usersDto.setSex(rs.getString(5));
+        usersDto.setRole(rs.getString(6));
+        usersDto.setBooksGot(rs.getInt(7));
+        return usersDto;
     }
 
     public static UserDao getInstance() {

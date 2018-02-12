@@ -1,9 +1,12 @@
 package web.command.impl;
 
 import dto.FormularDto;
+import dto.UsersDto;
 import entities.User;
 import services.FormularService;
+import services.UserService;
 import services.impl.FormularServiceImpl;
+import services.impl.UserServiceImpl;
 import web.command.Controller;
 
 import javax.servlet.RequestDispatcher;
@@ -14,14 +17,14 @@ import java.io.IOException;
 import java.util.List;
 
 public class UsersController implements Controller {
-    private FormularService formularService = FormularServiceImpl.getInstance();
+    private UserService userService = UserServiceImpl.getInstance();
 
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         User user = (User)req.getSession().getAttribute("user");
-        List<FormularDto> formularDto = formularService.getUserFormular(user.getUserId());
+        List<UsersDto> usersDto = userService.getAll();
 
-        req.setAttribute("formularDto", formularDto);
+        req.setAttribute("usersDto", usersDto);
         RequestDispatcher dispatcher = req.getRequestDispatcher(MAIN_PAGE);
         dispatcher.forward(req, resp);
     }
