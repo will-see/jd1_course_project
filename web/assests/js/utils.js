@@ -1,19 +1,19 @@
 $(document).ready(function () {
-    $('.addProductBtn').click(function () {
-        addProduct($(this));
+    $('.getBookBtn').click(function () {
+        getBook($(this));
     });
     $('.reduceProductBtn').click(function () {
         reduceProduct($(this));
     });
 });
 
-function addProduct(element) {
+function getBook(element) {
     var bookId = $(element).attr('id');
     var json = JSON.stringify(bookId);
     console.log(json);
     $.ajax({
         type: 'get',
-        url: contextUrl + '/frontController?command=addBook&bookId=' + productId
+        url: contextUrl + '/frontController?command=getBook&bookId=' + bookId
     }).done(function (data) {
         $('#count'+bookId).text(data);
     }).fail(function (data) {

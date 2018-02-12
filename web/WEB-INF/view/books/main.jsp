@@ -9,7 +9,7 @@
     <fmt:setLocale value="${sessionScope.locale}"/>
     <fmt:setBundle basename="messages" var="i18n"/>
     <div class="container-fluid">
-        <div class="col-md-5"><b><fmt:message bundle="${i18n}" key="books.title"/></b></div>
+        <div class="col-md-6"><b><fmt:message bundle="${i18n}" key="books.title"/></b></div>
         <table class="table">
             <tr>
                 <th class="col-md-1"> <fmt:message bundle="${i18n}" key="books.name"/></th>
@@ -17,6 +17,7 @@
                     <th class="col-md-1"><fmt:message bundle="${i18n}" key="books.pages"/></th>
                     <th class="col-md-1"><fmt:message bundle="${i18n}" key="books.author"/></th>
                     <th class="col-md-1"><fmt:message bundle="${i18n}" key="books.quantity"/></th>
+                    <th class="col-md-1"></th>
                     <%--<th class="col-md-1">Price</th>--%>
                     <%--<th class="col-md-1"></th>--%>
             </tr>
@@ -33,7 +34,7 @@
                         <td class="col-md-1">${book.pages}</td>
                         <td class="col-md-1">${book.author}</td>
                         <td class="col-md-1">${book.bookCount}</td>
-                        <%--<td class="col-md-1"><input id="${product.id}" class="btn-primary addProductBtn" type="button" title="Добавить в корзину" value="+"/></td>--%>
+                        <td class="col-md-1"><input id="${book.bookId}" class="btn-primary getBookBtn" type="button" title="take book" value="+"/></td>
                         <%--<td class="col-md-1"><input id="${product.id}" class="btn-primary reduceProductBtn" type="button" title="Удалить 1 из корзину" value="-"/></td>--%>
                     </div>
                 </tr>

@@ -104,7 +104,7 @@ public class TestBook {
 //        System.out.println(formularDao.getUserFormular(2l));
         System.out.println(userDao.getAll());
         System.out.println(userService.getAll());
-//        System.out.println(formularService.getUserFormular(2l));
+        System.out.println(formularService.getUserFormular(2l));
 //        userService.createUser("vasia","vasia","vasia",10,"male");
 
 

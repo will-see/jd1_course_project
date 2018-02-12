@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 public class BookDto {
 
+        private long bookId;
         private String name;
         private String ganr;
         private int pages;

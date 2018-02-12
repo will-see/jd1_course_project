@@ -14,7 +14,8 @@ public enum ControllerType {
     FORMULAR("formular/main.jsp", "Formular","formular.title", new FormularDtoController()),
     BOOKS("books/main.jsp", "Books", "books.title",new BookController()),
     REGISTER("register.jsp", "Register", "register.title", new RegisterController()),
-    USERS("users/main.jsp", "Users", "users.title", new UsersController());
+    USERS("users/main.jsp", "Users", "users.title", new UsersController()),
+    ADD_PRODUCTS_AJAX("", "getBook", "", new getBookController()),;
 
     private String pagePath;
     private String pageName;
