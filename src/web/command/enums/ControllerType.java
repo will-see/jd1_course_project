@@ -15,7 +15,8 @@ public enum ControllerType {
     BOOKS("books/main.jsp", "Books", "books.title",new BookController()),
     REGISTER("register.jsp", "Register", "register.title", new RegisterController()),
     USERS("users/main.jsp", "Users", "users.title", new UsersController()),
-    CHANGE("users/change.jsp", "Change", "users.title", new ChangeRoleController()),
+    CHANGE("change/main.jsp", "Change", "users.title", new ChangeRoleController()),
+//    CHANGE("users/main.jsp", "Change", "users.title", new ChangeRoleController()),
     ADD_PRODUCTS_AJAX("", "GetBook", "", new getBookController());
 
     private String pagePath;

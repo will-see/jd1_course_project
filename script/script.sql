@@ -114,3 +114,5 @@ FROM users JOIN roles ON users.id_role = roles.id_role
 ORDER BY users.userId;
 
 SELECT count(name)FROM books;
+
+UPDATE users SET id_role='1' WHERE userId=2;

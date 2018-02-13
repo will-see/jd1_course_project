@@ -10,6 +10,8 @@ import db.ConnectionManager;
 import dto.UsersDto;
 import entities.Book;
 import entities.Formular;
+import entities.User;
+import org.junit.Assert;
 import org.junit.Test;
 import services.AuthorService;
 import services.BookService;
@@ -62,17 +64,27 @@ public class TestBook {
     }
 
     @Test
+    public void updateTest() throws SQLException{
+        User user = userDao.get(2l);
+        System.out.println(user);
+//        user.setRole("0");
+        user.setRole("1");
+        System.out.println(user);
+        userDao.update(user);
+    }
+
+    @Test
     public void fullTest() throws SQLException, Exception {
         Connection connection = ConnectionManager.getConnection();
         connection.setAutoCommit(true);
 
 //        int beforeSave = bookDao.getAll().size();
-//        Book newBook = bookDao.save(new Book("lykomorie", "skazka", 100,1,  5));
-//        int afterSave = bookDao.getAll().size();
-//        Assert.assertNotSame(beforeSave, afterSave);
-//
+//        Book newBook = bookDao.get(2l);
+////        int afterSave = bookDao.getAll().size();
+////        Assert.assertNotSame(beforeSave, afterSave);
+////
 ////        connection.rollback();
-//
+////
 //        newBook.setName("sidoroff");
 //        bookDao.update(newBook);
 //
@@ -110,7 +122,7 @@ public class TestBook {
 
 //        List<Formular> formular = formularService.getByUserId(userDao.getByLogin("user1").getUserId());
 //        System.out.println(formular.get(0).getBookId());
-//        System.out.println(bookDao.get(2l));
+//        System.out.println(userDao.get(2l));
 //        System.out.println(formularDao.get(2l).getBookId());
 //        System.out.println(formularDao.get(2l).getUserId());
 //        System.out.println(formularDao.get(2l).getFormularId());
@@ -119,9 +131,11 @@ public class TestBook {
 
 //        System.out.println(formularDao.getByUserId(2l));
 //        System.out.println(formularDao.getUserFormular(2l));
-        System.out.println(userDao.getAll());
-        System.out.println(userService.getAll());
-        System.out.println(formularService.getUserFormular(2l));
+//        System.out.println(userDao.getAll());
+        System.out.println(userDao.get(2l));
+//        System.out.println(userService.getAll());
+//        System.out.println(formularService.getUserFormular(2l));
+
 //        userService.createUser("vasia","vasia","vasia",10,"male");
 
 

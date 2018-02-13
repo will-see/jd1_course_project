@@ -16,9 +16,11 @@ public class ChangeRoleController implements Controller {
 
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-        String id = req.getParameter("id");
-        User user = userService.get(Long.parseLong(id));
-        int role = user.getRole();
+        String id = req.getParameter("userId");
+        String role = req.getParameter("role");
+//        User user;
+//        userService.get(Long.parseLong(id));
+//        int role = user.getRole();
     }
 }
 

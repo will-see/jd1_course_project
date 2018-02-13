@@ -17,7 +17,8 @@ public class UserDaoImpl extends AbstractDao implements UserDao {
 
     private static final String saveUserQuery = "INSERT INTO users (name,LOGIN, password, age, sex) VALUES (?,?,?,?,?)";
     private static final String getUserQuery = "SELECT * FROM users WHERE login=?";
-    private static final String updateUserQuery = "UPDATE users SET name=? WHERE userId=?";
+    private static final String getUserByIdQuery = "SELECT * FROM users WHERE userId=?";
+    private static final String updateUserQuery = "UPDATE users SET id_role=? WHERE userId=?";
     private static final String deleteUserQuery = "DELETE FROM users WHERE userId=?";
     private static final String getAllUsersDto = "SELECT users.userId, name, login,age, sex,role, count(bookId)\n" +
             "FROM users JOIN roles ON users.id_role = roles.id_role\n" +
@@ -56,7 +57,7 @@ public class UserDaoImpl extends AbstractDao implements UserDao {
 
     @Override
     public User get(Serializable userId) throws SQLException {
-        psGet = prepareStatement(getUserQuery);
+        psGet = prepareStatement(getUserByIdQuery);
         psGet.setLong(1, (long) userId);
         psGet.executeQuery();
         ResultSet rs = psGet.getResultSet();
@@ -72,13 +73,13 @@ public class UserDaoImpl extends AbstractDao implements UserDao {
     @Override
     public void update(User user) throws SQLException {
         psUpdate = prepareStatement(updateUserQuery);
-        psUpdate.setLong(7, user.getUserId());
-        psUpdate.setString(1, user.getName());
-        psUpdate.setString(2, user.getLogin());
-        psUpdate.setString(3, user.getPassword());
-        psUpdate.setInt(4, user.getAge());
-        psUpdate.setString(5, user.getSex());
-        psUpdate.setInt(6, user.getRole());
+        psUpdate.setLong(2, user.getUserId());
+//        psUpdate.setString(1, user.getName());
+//        psUpdate.setString(2, user.getLogin());
+//        psUpdate.setString(3, user.getPassword());
+//        psUpdate.setInt(4, user.getAge());
+//        psUpdate.setString(5, user.getSex());
+        psUpdate.setString(1, user.getRole());
         psUpdate.executeUpdate();
     }
 
@@ -124,7 +125,7 @@ public class UserDaoImpl extends AbstractDao implements UserDao {
         user.setPassword(rs.getString(4));
         user.setAge(rs.getInt(5));
         user.setSex(rs.getString(6));
-        user.setRole(rs.getInt(7));
+        user.setRole(rs.getString(7));
         return user;
     }
 

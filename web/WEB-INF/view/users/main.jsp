@@ -17,7 +17,7 @@
         <th width=120><fmt:message bundle="${i18n}" key="users.login"/></th>
         <th width=120><fmt:message bundle="${i18n}" key="users.age"/></th>
         <th width=120><fmt:message bundle="${i18n}" key="users.sex"/></th>
-        <th width=120><fmt:message bundle="${i18n}" key="users.booksGot"/></th>
+        <th width=120><fmt:message bundle="${i18n}" key="users.role"/></th>
         <th width=120><fmt:message bundle="${i18n}" key="users.booksGot"/></th>
         <th width=120><fmt:message bundle="${i18n}" key="users.booksGot"/></th>
     </tr>
@@ -30,11 +30,14 @@
             <td>${users.login}</td>
             <td>${users.age}</td>
             <td>${users.sex}</td>
+            <td>${users.role}</td>
             <td>${users.booksGot}</td>
                 <td>
-                <form action="frontController?command=change" method="post">
-                <p><input id="id" name="text">
-                <input type="submit" value=${users.userId}>
+                <form action="frontController?command=users" method="post">
+                <p><input type="hidden" name="userId" value=${users.userId}>
+                <p><input type="hidden" name="role" value=${users.role}>
+                <p><input type="hidden" name="flag" value="change">
+                <input type="submit" value="change role">
                 </form>
                 </td>
         </tr>

@@ -32,7 +32,7 @@
             <td>${users.sex}</td>
             <td>${users.booksGot}</td>
                 <td>
-                <form action="frontController?command=change" method="post">
+                <form action="frontController?command=users" method="post">
                 <input type="submit" value=${users.userId}>
                 </form>
                 </td>
