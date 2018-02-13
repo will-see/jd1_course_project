@@ -8,6 +8,7 @@ import DAO.impl.FormularDaoImpl;
 import DAO.impl.UserDaoImpl;
 import db.ConnectionManager;
 import dto.UsersDto;
+import entities.Book;
 import entities.Formular;
 import org.junit.Test;
 import services.AuthorService;
@@ -35,6 +36,22 @@ public class TestBook {
     private UserService userService = UserServiceImpl.getInstance();
 
     public void initData() {}
+
+    @Test
+    public void bookGenTest()throws SQLException, Exception {
+        Connection connection = ConnectionManager.getConnection();
+        connection.setAutoCommit(true);
+        for (int i = 11; i < 51; i++) {
+            String bookName = "book";
+            bookName += i;
+            String ganr = "ganr" + (int) (Math.random() * 10 + 1);
+            int pages = (int) (Math.random() * 10 + 1) * 100;
+            int authorId = (int) (Math.random() * 5 + 1);
+            int bookCount = (int) (Math.random() * 10 + 1) * 10;
+            System.out.println(bookName + " " + ganr + " " + pages + " " + authorId + " " + bookCount);
+            bookDao.save(new Book(bookName, ganr, pages, authorId, bookCount));
+        }
+    }
 
     @Test
     public void rbTest() {

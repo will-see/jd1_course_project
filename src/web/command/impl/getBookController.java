@@ -1,6 +1,7 @@
 package web.command.impl;
 
 import com.google.gson.Gson;
+import dto.BookDto;
 import entities.Book;
 import entities.User;
 import web.command.Controller;
@@ -10,11 +11,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 public class getBookController implements Controller {
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-//        Book book = (Book)req.getSession().getAttribute("book");
+//        BookDto bookDto = (BookDto) req.getSession().getAttribute("bookDto");
 
 //        BasketVO basket = (BasketVO) req.getSession().getAttribute("basket");
 //        if (basket == null) {
@@ -27,7 +29,13 @@ public class getBookController implements Controller {
 //        long productId = in.fromJson(id, Long.class);
 
 //        AtomicInteger count = basket.getBasket().get(bookId);
-        int currentCount = 0;
+        User user = (User)req.getSession().getAttribute("user");
+        long bookId = Long.parseLong(req.getParameter("bookId"));
+//        List<BookDto>
+
+//        int bookCount = Integer.parseInt(req.getParameter("bookCount"));
+        int bookCount = Integer.parseInt(req.getParameter("bookCount"));
+        int currentCount = bookCount-1;
 //        if (count == null) {
 //            count = new AtomicInteger();
 //            count.set(1);

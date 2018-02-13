@@ -33,7 +33,6 @@
             <td>${users.booksGot}</td>
                 <td>
                 <form action="frontController?command=change" method="post">
-                <p><input id="id" name="text">
                 <input type="submit" value=${users.userId}>
                 </form>
                 </td>
