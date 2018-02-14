@@ -41,7 +41,8 @@ public class RegisterController implements Controller {
 //            login = null;
 //            password = null;
 //            req.getSession().invalidate();
-        resp.sendRedirect("/frontController?command=formular");
+//        resp.sendRedirect("/frontController?command=formular");
+        req.getServletContext().getRequestDispatcher("/frontController?command=login").forward(req, resp);
         return;
 //        } else {
 //            req.setAttribute("errorMsg", "login exist yet");

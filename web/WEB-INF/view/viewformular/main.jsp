@@ -34,17 +34,17 @@
             <td>${users.role}</td>
                 <td>${users.booksGot}</td>
                 <td>
-                <form action="frontController?command=formular" method="post">
-                <p><input type="hidden" name="userId" value=${users.userId}>
-                <input type="submit" value="view">
-                </form>
-                </td>
-                <td>
                 <form action="frontController?command=users" method="post">
                 <p><input type="hidden" name="userId" value=${users.userId}>
                 <p><input type="hidden" name="role" value=${users.role}>
                 <p><input type="hidden" name="flag" value="change">
                 <input type="submit" value="change role">
+                </form>
+                </td>
+                <td>
+                <form action="frontController?command=viewFormular" method="post">
+                <p><input type="hidden" name="userId" value=${users.userId}>
+                <input type="submit" value="view">
                 </form>
                 </td>
         </tr>

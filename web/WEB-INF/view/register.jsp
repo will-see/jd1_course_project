@@ -1,5 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+
 <div class="container text-center">
     <div class="error">${errorMsg}</div>
     <form action="frontController?command=register" method="post">
@@ -7,16 +9,16 @@
         <fmt:setBundle basename="messages" var="i18n"/>
         <br>
         <b><fmt:message bundle="${i18n}" key="users.name"/></b><br>
-        <input type="name" name="name" maxlength="20"/>
+        <input type="name" name="name" required maxlength="20"/>
         <br>
         <b><fmt:message bundle="${i18n}" key="users.login"/></b><br>
-        <input type="login" name="login" maxlength="30"/>
+        <input type="login" name="login" required maxlength="30"/>
         <br>
         <b><fmt:message bundle="${i18n}" key="users.pass"/></b><br>
-        <input type="password" name="password" maxlength="20"/>
+        <input type="password" name="password" required maxlength="20"/>
         <br>
         <b><fmt:message bundle="${i18n}" key="users.age"/></b><br>
-        <input type="age" name="age" maxlength="20"/>
+        <input type="age" name="age" required pattern="^[0-9]+$" maxlength="20"/>
         <br>
         <b><fmt:message bundle="${i18n}" key="users.sex"/></b><br>
         <%--<input type="sex" name="sex" maxlength="20"/><br/>--%>
