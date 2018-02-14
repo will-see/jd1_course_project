@@ -67,11 +67,22 @@ public class BookDaoImpl extends AbstractDao implements BookDao {
     public void update(Book book) throws SQLException {
         psUpdate = prepareStatement(updateBookQuery);
         psUpdate.setLong(1, book.getBookId());
-        psUpdate.setString(2, book.getName());
-        psUpdate.setString(3, book.getGanr());
-        psUpdate.setInt(4, book.getPages());
-        psUpdate.setLong(5, book.getAuthorId());
-        psUpdate.setInt(6, book.getBookCount());
+//        psUpdate.setString(2, book.getName());
+//        psUpdate.setString(3, book.getGanr());
+//        psUpdate.setInt(4, book.getPages());
+//        psUpdate.setLong(5, book.getAuthorId());
+        psUpdate.setInt(2, book.getBookCount());
+        psUpdate.executeUpdate();
+    }
+    @Override
+    public void updateCount(long bookId, int bookCount) throws SQLException {
+        psUpdate = prepareStatement(updateBookQuery);
+        psUpdate.setLong(2, bookId);
+//        psUpdate.setString(2, book.getName());
+//        psUpdate.setString(3, book.getGanr());
+//        psUpdate.setInt(4, book.getPages());
+//        psUpdate.setLong(5, book.getAuthorId());
+        psUpdate.setInt(1, bookCount);
         psUpdate.executeUpdate();
     }
 

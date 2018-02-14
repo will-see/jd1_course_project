@@ -36,7 +36,7 @@ public class BookServiceImpl extends AbstractService implements services.BookSer
         try {
             return bookDao.get(id);
         } catch (SQLException e) {
-            throw new ServiceException("Error getting Formular by id" + id);
+            throw new ServiceException("Error getting Book by id" + id);
         }
     }
 
@@ -45,7 +45,16 @@ public class BookServiceImpl extends AbstractService implements services.BookSer
         try {
             bookDao.update(book);
         } catch (SQLException e) {
-            throw new ServiceException("Error updating Formular book" + book);
+            throw new ServiceException("Error updating Book" + book);
+        }
+    }
+
+    @Override
+    public void updateCount(long bookId, int bookCount) {
+        try {
+            bookDao.updateCount(bookId,bookCount);
+        } catch (SQLException e) {
+            throw new ServiceException("Error updating Book count" + bookCount);
         }
     }
 

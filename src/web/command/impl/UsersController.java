@@ -37,16 +37,16 @@ public class UsersController implements Controller {
             String role = req.getParameter("role");
             flag = "";
             try {
-                User fakeUser = new User(2l," "," "," ",10," "," ");
-                User fakeUser = userDao.get(id);
-                    System.out.println(fakeUser);
+                User fakeUser = new User();
+                fakeUser.setUserId(Long.parseLong(id));
+                fakeUser.setRole(role);
+//                User fakeUser = userService.get(Long.parseLong(id));
                 if (role.equalsIgnoreCase("reader")) {
                     fakeUser.setRole("1");
-                    System.out.println(fakeUser);
-                    userDao.update(fakeUser);
+                    userService.update(fakeUser);
                 } else {
                     fakeUser.setRole("0");
-                    userDao.update(fakeUser);
+                    userService.update(fakeUser);
                 }
             } catch (Exception e) {
                 e.printStackTrace();

@@ -3,7 +3,14 @@ package web.command.impl;
 import com.google.gson.Gson;
 import dto.BookDto;
 import entities.Book;
+import entities.Formular;
 import entities.User;
+import services.BookService;
+import services.FormularService;
+import services.UserService;
+import services.impl.BookServiceImpl;
+import services.impl.FormularServiceImpl;
+import services.impl.UserServiceImpl;
 import web.command.Controller;
 
 import javax.servlet.ServletException;
@@ -13,7 +20,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
-public class getBookController implements Controller {
+public class GetBookController implements Controller {
+    private BookService bookService = BookServiceImpl.getInstance();
+    private FormularService formularService = FormularServiceImpl.getInstance();
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 //        BookDto bookDto = (BookDto) req.getSession().getAttribute("bookDto");
@@ -31,21 +40,32 @@ public class getBookController implements Controller {
 //        AtomicInteger count = basket.getBasket().get(bookId);
         User user = (User)req.getSession().getAttribute("user");
         long bookId = Long.parseLong(req.getParameter("bookId"));
+        long userId = user.getUserId();
 //        List<BookDto>
 
 //        int bookCount = Integer.parseInt(req.getParameter("bookCount"));
-        int bookCount = Integer.parseInt(req.getParameter("bookCount"));
-        int currentCount = bookCount-1;
-//        if (count == null) {
-//            count = new AtomicInteger();
-//            count.set(1);
-//            currentCount = 1;
-//        } else {
-//            currentCount = count.incrementAndGet();
-//        }
-//        basket.getBasket().put(bookId, count);
+        Book book = bookService.get(bookId);
+        int bookCount = book.getBookCount();
+        System.out.println(bookId);
+        System.out.println(bookCount);
+        if(bookCount>0) {
+            List<Formular> formulars = formularService.getByUserId(userId);
+            if(formulars.size()==0){
+                bookCount--;
+                formularService.createFormular(userId,bookId);
+            }
+            for(int i=0;i<formulars.size();i++){
+                if(formulars.get(i).getBookId()==bookId){
+                    break;
+                }else {
+                    bookService.updateCount(bookId,bookCount);
+                    bookCount--;
+                    formularService.createFormular(userId,bookId);
+                }
+            }
+        }
         PrintWriter writer = resp.getWriter();
-        writer.print(new Gson().toJson(currentCount));
+        writer.print(new Gson().toJson(bookCount));
 
     }
 }

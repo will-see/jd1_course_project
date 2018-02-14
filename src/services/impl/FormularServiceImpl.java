@@ -31,12 +31,14 @@ public class FormularServiceImpl extends AbstractService implements FormularServ
         try {
             startTransaction();
             formular.setUserId(userId);
+            formular.setBookId(bookId);
 
 //            Book book = bookDao.get(bookId);
 //            if (quantity < 1) {
 //                quantity = 1;
 //            }
 //            formular.setTotal(book.getPrice() * quantity);
+            System.out.println(formular);
             formular = formularDao.save(formular);
 
             Item item = new Item(formular.getFormularId(), bookId);

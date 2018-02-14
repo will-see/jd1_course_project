@@ -19,7 +19,7 @@
         <th width=120><fmt:message bundle="${i18n}" key="users.sex"/></th>
         <th width=120><fmt:message bundle="${i18n}" key="users.role"/></th>
         <th width=120><fmt:message bundle="${i18n}" key="users.booksGot"/></th>
-        <th width=120><fmt:message bundle="${i18n}" key="users.booksGot"/></th>
+        <%--<th width=120><fmt:message bundle="${i18n}" key="users.booksGot"/></th>--%>
     </tr>
 
     <c:forEach var="users" items="${usersDto}" varStatus="status">

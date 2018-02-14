@@ -132,12 +132,14 @@ public class TestBook {
 //        System.out.println(formularDao.getByUserId(2l));
 //        System.out.println(formularDao.getUserFormular(2l));
 //        System.out.println(userDao.getAll());
-        System.out.println(userDao.get(2l));
+//        System.out.println(userDao.get(2l));
 //        System.out.println(userService.getAll());
 //        System.out.println(formularService.getUserFormular(2l));
 
 //        userService.createUser("vasia","vasia","vasia",10,"male");
-
+//            formularService.createFormular(1l,2l);
+            bookService.updateCount(1l,9);
+//            formularDao.save(1l,2l);
 
 //            User user = UserServiceImpl.getInstance().createUser("valera", "user3", "user", 16, "male");
     }
