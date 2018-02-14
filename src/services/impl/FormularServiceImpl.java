@@ -25,29 +25,37 @@ public class FormularServiceImpl extends AbstractService implements FormularServ
     private BookDao bookDao = BookDaoImpl.getInstance();
     private ItemDao itemDao = ItemDaoImpl.getInstance();
 
+//    @Override
+//    public Formular createFormular(long userId, long bookId) {
+//        Formular formular = new Formular();
+//        try {
+//            startTransaction();
+//            formular.setUserId(userId);
+//            formular.setBookId(bookId);
+//
+//            formular = formularDao.save(formular);
+//
+//            Item item = new Item(formular.getFormularId(), bookId);
+//            itemDao.save(item);
+//            commit();
+//            return formular;
+//        } catch (SQLException e) {
+//            rollback();
+//            throw new ServiceException("Error creating Formular " + formular, e);
+//        }
+//    }
+
+
     @Override
     public Formular createFormular(long userId, long bookId) {
         Formular formular = new Formular();
         try {
-            startTransaction();
             formular.setUserId(userId);
             formular.setBookId(bookId);
-
-//            Book book = bookDao.get(bookId);
-//            if (quantity < 1) {
-//                quantity = 1;
-//            }
-//            formular.setTotal(book.getPrice() * quantity);
-            System.out.println(formular);
-            formular = formularDao.save(formular);
-
-            Item item = new Item(formular.getFormularId(), bookId);
-            itemDao.save(item);
-            commit();
+            formularDao.save(formular);
             return formular;
         } catch (SQLException e) {
-            rollback();
-            throw new ServiceException("Error creating Formular " + formular, e);
+            throw new ServiceException("Error creating Formular" + formular, e);
         }
     }
 

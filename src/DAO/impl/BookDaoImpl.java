@@ -18,7 +18,7 @@ public class BookDaoImpl extends AbstractDao implements BookDao {
     private static final String saveBookQuery = "INSERT INTO books (name, ganr, pages, authorId,book_count ) VALUES (?, ?, ?, ?, ?)";
     private static final String updateBookQuery = "UPDATE books SET book_count=? WHERE bookId=?";
     private static final String getBookByIdQuery = "SELECT * FROM books WHERE bookId=?";
-    private static final String getAllBookQuery = "SELECT bookId, name, ganr,pages, author_name, book_count FROM books JOIN authors a ON books.authorId = a.id_author;";
+    private static final String getAllBookQuery = "SELECT bookId, name, ganr,pages, author_name, book_count FROM books JOIN authors a ON books.authorId = a.id_author order by bookId;";
     private static final String getByNameAndGanrQuery = "SELECT * FROM books WHERE name=? AND ganr=?";
     private static final String deleteBookQuery = "DELETE FROM books WHERE bookId=?";
 

@@ -23,6 +23,7 @@ import java.util.List;
 public class GetBookController implements Controller {
     private BookService bookService = BookServiceImpl.getInstance();
     private FormularService formularService = FormularServiceImpl.getInstance();
+
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 //        BookDto bookDto = (BookDto) req.getSession().getAttribute("bookDto");
@@ -38,7 +39,7 @@ public class GetBookController implements Controller {
 //        long productId = in.fromJson(id, Long.class);
 
 //        AtomicInteger count = basket.getBasket().get(bookId);
-        User user = (User)req.getSession().getAttribute("user");
+        User user = (User) req.getSession().getAttribute("user");
         long bookId = Long.parseLong(req.getParameter("bookId"));
         long userId = user.getUserId();
 //        List<BookDto>
@@ -48,24 +49,28 @@ public class GetBookController implements Controller {
         int bookCount = book.getBookCount();
         System.out.println(bookId);
         System.out.println(bookCount);
-        if(bookCount>0) {
+        if (bookCount > 0) {
             List<Formular> formulars = formularService.getByUserId(userId);
-            if(formulars.size()==0){
+            if (formulars.size() == 0) {
                 bookCount--;
-                formularService.createFormular(userId,bookId);
-            }
-            for(int i=0;i<formulars.size();i++){
-                if(formulars.get(i).getBookId()==bookId){
-                    break;
-                }else {
-                    bookService.updateCount(bookId,bookCount);
+                bookService.updateCount(bookId, bookCount);
+                formularService.createFormular(userId, bookId);
+            } else {
+                boolean flag = true;
+                for (int i = 0; i < formulars.size(); i++) {
+                    if (formulars.get(i).getBookId() == bookId) {
+                        flag = false;
+                        break;
+                    }
+                }
+                if (flag == true) {
                     bookCount--;
-                    formularService.createFormular(userId,bookId);
+                    bookService.updateCount(bookId, bookCount);
+                    formularService.createFormular(userId, bookId);
                 }
             }
         }
         PrintWriter writer = resp.getWriter();
         writer.print(new Gson().toJson(bookCount));
-
     }
 }
